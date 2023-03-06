@@ -1,15 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond|Cormorant+Garamond|Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora|Lora|Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 :root{
---brand-paper: rgb(253,251,227);
---brand-green: rgb(167,209,202);
---brand-green-pale: rgb(223,237,224);
+--brand-black: rgb(27,27,28);
+--brand-dark-gray: rgb(54,50,51);
+--brand-light-gray: rgb(104,102,103);
+--brand-yellow: rgb(248,216,101);
+--brand-white: rgb(255,255,255);
 }
 
 body{
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Lora', serif;
     font-size: 100%;
-    background-color: var(--brand-paper);
+    background-color: var(--brand-white);
     margin: 0;
 }
 
@@ -40,12 +42,17 @@ h1{
 /* -- layout -- */
 
 .container-fluid{
-    border: 0px solid blue;
+    border: 0px solid white;
     padding:0;
 }
 
+.container-hero{
+    border:3px solid white;
+    padding: 0 1em 2em 1em;
+}
+
 .container-lg{ 
-    border: 0px solid pink;
+    border: 3px solid white;
     background-color: rgb(255,255,255);
     
     overflow: auto;
@@ -54,7 +61,7 @@ h1{
 }
 
 .col-lg-7, .col-lg-5{
-    border: 0px solid red;
+    border: 0px solid white;
 }
 
 .row{
@@ -75,10 +82,10 @@ h1{
 /* -- footer -- */
 
 .footer-content{
-    background-color: var(--brand-green);
+    background-color: var(--brand-dark-gray);
     text-align: center;
     padding: 0.5em 0 0.5em 0;
-    color: white;
+    color: var(--brand-light-gray);
 }
 
 .footer-content p:first-child{
@@ -89,12 +96,12 @@ h1{
 /* -- navigation --*/
 
 .navbar{
-    background-color: var(--brand-green);
-    border-bottom: 1px solid black;
+    background-color: var(--brand-white);
+    border-bottom: 0.5px solid white;
 }
 
 .nav-item:hover{
-    background-color:var(--brand-green-pale);
+    background-color:var(--brand-yellow);
 }
 
 .nav-link{
@@ -103,7 +110,7 @@ h1{
 }
 
 .nav-link:hover{
-    color:var(--brand-green);
+    color:var(--brand-white);
 }
 
 .btn-outline{
@@ -112,7 +119,7 @@ h1{
 }
 
 .btn-outline:hover{
-    background-color: var(--brand-green-pale)
+    background-color: var(--brand-yellow)
 }
 
 /* ---------- */
