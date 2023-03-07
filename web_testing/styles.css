@@ -58,7 +58,7 @@ h1{
     font-size: 2em;
     font-style: italic;
     padding: 1em 1em;
-    color: rgb(150,150,150)  
+    color: rgb(150,150,150);  
 }
 
 /* --- Media --- */
@@ -72,8 +72,8 @@ h1{
 /* --- Nav --- */
 
 .navbar{
-    background-color: var(--brand-white);
-    border-bottom: 0.5px solid white;
+    background-color: var(--brand-dark-gray);
+    border-bottom: 1em solid white;
 }
 
 .nav-item:hover{
@@ -82,7 +82,7 @@ h1{
 
 .nav-link{
     font-size: 1.5em;
-    color: black;
+    color: var(--brand-white);
 }
 
 .nav-link:hover{
@@ -90,12 +90,12 @@ h1{
 }
 
 .btn-outline{
-    border: 1px solid white;
+    border: 0px solid white;
     padding: 0 1em;
 }
 
 .btn-outline:hover{
-    background-color: var(--brand-yellow)
+    background-color: var(--brand-yellow);
 }
 
 /*--- Layout --- */
@@ -111,22 +111,26 @@ h1{
 }
 
 .container-lg{ 
-    border: 3px solid white;
     background-color: rgb(255,255,255);
     
-    overflow: auto;
+    overflow:auto;
     margin-bottom: 1.5em;
-    
+    margin-top: 1.5em;
+    margin-left: 0;
+    margin-right: 0;    
 }
 
 .col-lg-7, .col-lg-5{
     border: 0px solid white;
-    padding: 1em 1em 1em 1em;
+    padding: 0 0 0 0;
+}
+
+.container-bg {
     background-color: var(--brand-light-gray);
 }
 
 .row{
-    border: 0px solid blue
+    border: 0px solid blue;
     padding: 1em 0 1em 0;
 }
 
