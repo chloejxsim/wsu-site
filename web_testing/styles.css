@@ -2,7 +2,7 @@
 
 :root{
 --brand-black: rgb(27,27,28);
---brand-dark-gray: rgb(54,50,51);
+--brand-dark-gray: rgb(70,67,68);
 --brand-light-gray: rgb(104,102,103);
 --brand-yellow: rgb(248,216,101);
 --brand-white: rgb(255,255,255);
@@ -51,6 +51,16 @@ h1{
     text-align: center;
     font-weight:600;
     margin: 0;
+    color: var(--brand-white);
+}
+
+.aboutus{
+    font-size: 4em;    
+    text-align: center;
+    font-weight:600;
+    margin: 0;
+    color: var(--brand-black);
+    padding: 0 0 0.5em 0;
 }
 
 .quote{
@@ -101,8 +111,16 @@ h1{
 /*--- Layout --- */
 
 .container-fluid{
-    border: 0px solid white;
     padding:0;
+}
+
+.container-m{
+    background-color: rgb(255,255,255);
+    overflow:auto;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .container-hero{
@@ -110,28 +128,17 @@ h1{
     padding: 0 1em 2em 1em;
 }
 
-.container-lg{ 
-    background-color: rgb(255,255,255);
-    
-    overflow:auto;
-    margin-bottom: 1.5em;
-    margin-top: 1.5em;
-    margin-left: 0;
-    margin-right: 0;    
-}
-
-.col-lg-7, .col-lg-5{
+.col-lg-7, .col-lg-5, .col-lg-4{
     border: 0px solid white;
-    padding: 0 0 0 0;
-}
-
-.container-bg {
-    background-color: var(--brand-light-gray);
 }
 
 .row{
     border: 0px solid blue;
     padding: 1em 0 1em 0;
+}
+
+.welcome-bg {
+    background-color: var(--brand-light-gray);
 }
 
 /*--- Footer --- */
@@ -140,12 +147,13 @@ h1{
     background-color: var(--brand-dark-gray);
     text-align: center;
     padding: 0.5em 0 0.5em 0;
-    color: var(--brand-light-gray);
+    color: var(--brand-white);
 }
 
 .footer-content p:first-child{
     font-weight: 600;
     font-size: 1.5em;
+    text-align: center;
 }
 
 /* --- Media Queries --- */
