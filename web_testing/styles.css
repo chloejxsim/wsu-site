@@ -58,7 +58,7 @@ a.btn, a.btn-circle {
     user-select: none;
     border: 1px solid transparent;
     text-transform: uppercase;
-    padding: 1.5em 2.5em;
+    padding: 1.1em 1.7em;
     transition: color 0.5s ease-in-out,background-color 1s ease-in-out,border-color 0.5s ease-in-out,box-shadow 1s cubic-bezier(.019,1,.22,1);
     position:relative;
 }
@@ -73,7 +73,7 @@ a.btn, a.btn-circle {
 .btn-overlay {
     position:relative;
     text-align:center;
-    transform: translateY(22%);
+    transform: translateY(21%);
 }
 
 /* --- Body --- */
@@ -96,7 +96,6 @@ p {
     margin: 0;
     overflow: auto;
     line-height: 50px;
-    
 }
 
 /* --- Text --- */
@@ -132,12 +131,33 @@ h3{
     color: rgb(150,150,150);  
 }
 
+.welcome-heading {
+    font-size: 5em;    
+    text-align: center;
+    font-weight:600;
+    margin-top: 0;
+    padding-top:0.5em;
+    padding-bottom:0.6em;
+    color: var(--brand-white);
+}
+
+.welcome-text {
+    text-align: center;
+    color: var(--brand-white);
+    overflow: auto;
+    line-height: 25px;
+    max-width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom:1em;
+    }
+
 /* --- Media --- */
 
 .part-img{
     max-width: 75%;
     margin: auto;
-    display: block;
+    display:block;  
 }
 
 /* --- Nav --- */
@@ -202,6 +222,13 @@ h3{
 
 .welcome-bg {
     background-color: var(--brand-light-gray);
+}
+
+.welcome-box{
+    text-align: center;
+    background-color:rgba(248,216,101,.8);
+    position:sticky;
+    transform: translateX(19%);
 }
 
 /*--- Footer --- */
