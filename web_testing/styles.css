@@ -77,6 +77,18 @@ a.btn, a.btn-circle {
     transform: translateY(21%);
 }
 
+.parallax-container {
+    background-image: url("marsdenandwc%20-%20Edited.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* --- Body --- */
 
 body{
@@ -139,7 +151,6 @@ p {
     max-width:45%;
 }
 
-
 /* --- Media --- */
 
 .part-img{
@@ -186,7 +197,6 @@ p {
 .nav-btn-outline:hover{
     background-color: var(--brand-yellow);
 }
-
 
 /*--- Layout --- */
 
@@ -286,6 +296,12 @@ p {
 }
 
 /* --- Media Queries --- */
+
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
 
 @media only screen and (max-width: 991px){
     .welcome-box{
