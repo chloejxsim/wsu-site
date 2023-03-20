@@ -259,8 +259,31 @@ p {
 }
 
 .aboutus-container{
-    padding: 10px 2px 20px 2px;
+    padding: 10px 2px 30px 2px;
     align-items:stretch;
+}
+
+.aboutus-button {
+    border: 1px solid transparent;
+    outline: 0;
+    display:block;
+    letter-spacing: 2px;
+    color:var(--brand-dark-gray);
+    vertical-align: middle;
+    user-select: none;
+    margin:auto;
+    background-color:var(--brand-yellow);
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 0.75em 0.5em 0.75em 0.5em;
+}
+
+.aboutus-button:hover {
+    opacity: 0.7;
+    color:var(--brand-light-gray);
 }
 
 /*--- Footer --- */
