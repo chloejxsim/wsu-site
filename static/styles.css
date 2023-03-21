@@ -161,13 +161,62 @@ p {
     background-color:rgba(248,216,101,0.8);
 }
 
-.competition-title{
+.competition-title-1 {
     font-size: 4em;
     text-align: center;
     font-weight:500;
     margin:auto;
-    color: var(--brand-white);
+    color: var(--brand-black);
     padding: 0.5em;
+}
+
+.competition-title-2 {
+    font-size: 4em;
+    text-align: center;
+    font-weight:500;
+    margin:auto;
+    color: var(--brand-yellow);
+    padding: 0.5em;
+}
+
+.competition-subheading-1 {
+    font-size: 3em;
+    text-align: center;
+    font-weight:500;
+    margin:auto;
+    line-height:80%;
+    color: var(--brand-white);
+    padding-bottom: 0.4em;
+    padding-top: 0.4em;
+}
+
+.competition-subheading-2 {
+    font-size: 3em;
+    text-align: center;
+    font-weight:500;
+    margin:auto;
+    line-height:80%;
+    color: var(--brand-black);
+    padding-bottom: 0.4em;
+    padding-top: 0.4em;
+}
+
+.competition-text-1 {
+    text-align:center;
+    color: var(--brand-black);
+    margin:auto;
+    text-overflow:auto;
+    line-height:20px;
+    max-width:90%;
+}
+
+.competition-text-2 {
+    text-align:center;
+    color: var(--brand-white);
+    margin:auto;
+    text-overflow:auto;
+    line-height:20px;
+    max-width:90%;
 }
 
 /* --- Media --- */
