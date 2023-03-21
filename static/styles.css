@@ -78,7 +78,7 @@ a.btn, a.btn-circle {
 }
 
 .parallax-container {
-    background-image: url("marsdenandwc%20-%20Edited.png");
+    background-image: url("images/marsdenandwc - Edited.png");
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -149,6 +149,16 @@ p {
     text-overflow:auto;
     line-height:20px;
     max-width:45%;
+}
+
+.competition-header {
+    font-size: 4em;
+    text-align: center;
+    font-weight:600;
+    margin: 0;
+    color: var(--brand-white);
+    padding: 0.5em;
+    background-color:rgba(248,216,101,0.95);
 }
 
 /* --- Media --- */

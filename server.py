@@ -4,11 +4,11 @@ app = Flask ( __name__ )
 
 @app . route ('/')
 def index():
-    return
+    return render_template("index.html")
 
 @app . route ('/competitions')
 def competitions():
-    return "<h1>competitions</h1>"
+    return render_template("competitions.html")
 
 @app . route ('/resources')
 def resources():

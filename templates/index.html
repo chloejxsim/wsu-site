@@ -1,1 +1,73 @@
 {% extends "layout.html" %}
+
+{% block title %}
+Wellington Speaking Union
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="hero-text">Wellington Speaking Union</h1>
+    <h3 class="hero-subtitle">Fostering confident and persuasive public speakers</h3>
+</div>
+
+<div class="text-center">
+    <a class="btn btn-primary btn-overlay animate" href="#aboutus" target="_self">Learn More</a>
+</div>
+
+<div class="hero-image">
+    <img class="img-fluid" src="static/images/Hero%20Image%20(draft%20three).png">
+</div>
+
+<div class="container-m container-fluid">
+    <div class="welcome-bg">
+        <div class="row align-items-center">
+            <div class="col-lg-7 welcome-box">
+                <h1 class="welcome-heading">welcome</h1>
+                <p class="welcome-text">Wellington Speaking Union is a registered charity organisation that coordinates competitions for debating and public speaking in Wellington. In particular, the WSU convenes and coordinates the five intercollegiate debating grades in Wellington.</p>
+            </div>
+            <div class="col-lg-5">
+                <img class="part-img" src="static/images/MMF2022Winners.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-m container-fluid">
+    <h1 class="aboutus-heading">about us</h1>
+</div>
+
+<div class="container" id="aboutus">
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="aboutus-card h-100">
+                    <img class="part-img" src="static/images/history.png">
+                <div class="aboutus-container">
+                    <p class=aboutus-text>The Wellington Speaking Union (WSU) was established as early as 1942. Learn more about our long and proud history.</p>
+                    &nbsp;
+                    <button class="aboutus-button">learn more</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="aboutus-card">
+                    <img class="part-img" src="static/images/finger%20heart.png">
+                <div class="aboutus-container">
+                    <p class=aboutus-text>WSU is proudly supported by many individuals and organisations. Learn more about friends of Wellington Schools' Debating.</p>
+                    &nbsp;
+                    <button class="aboutus-button">support us</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="aboutus-card h-100">
+                    <img class="part-img" src="static/images/support.png">
+                <div class="aboutus-container">
+                    <p class=aboutus-text>Our organisation could not be more grateful for the volunteers who help us out. Learn more about how to get involved. </p>
+                    &nbsp;
+                    <button class="aboutus-button">get involved</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
