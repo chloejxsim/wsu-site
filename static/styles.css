@@ -78,15 +78,26 @@ a.btn, a.btn-circle {
 }
 
 .parallax-container {
-    background-image: url("images/marsdenandwc - Edited.png");
     background-attachment: fixed;
-    background-position: center;
+    background-position: top;
     background-size: cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#parallax1 {
+    background-image: url("images/MarsdenAndWC - Edited.png");
+}
+
+#parallax2 {
+    background-image: url("images/chloespeaking - Edited.png");
+}
+
+#parallax3 {
+    background-image: url("images/WC+KCPremA - Edited.png");
 }
 
 /* --- Body --- */
@@ -151,10 +162,10 @@ p {
     max-width:45%;
 }
 
-.competition-header {
+.page-header {
     font-size: 6em;
     text-align:center;
-    font-weight:600;
+    font-weight:300;
     margin:auto;
     color: var(--brand-white);
     padding: 0.5em;
