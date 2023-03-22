@@ -242,6 +242,10 @@ p {
     max-width:100%;
 }
 
+.circular-image {
+    border-radius: 50%;
+}
+
 /* --- Nav --- */
 
 .navbar{
