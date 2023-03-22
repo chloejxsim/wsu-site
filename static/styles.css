@@ -153,12 +153,11 @@ p {
 
 .competition-header {
     font-size: 6em;
-    text-align: center;
+    text-align:center;
     font-weight:600;
-    margin: 0;
+    margin:auto;
     color: var(--brand-white);
     padding: 0.5em;
-    background-color:rgba(248,216,101,0.8);
 }
 
 .competition-title-1 {
