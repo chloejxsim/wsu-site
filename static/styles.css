@@ -121,6 +121,15 @@ p {
     overflow: auto;
 }
 
+.quote{
+    text-align: center;
+    font-size: 2em;
+    font-style: italic;
+    padding: 1em;
+    color: rgb(150,150,150);
+    margin-bottom:-0.5em;
+}
+
 /* --- Text --- */
 
 .welcome-heading {
@@ -169,6 +178,9 @@ p {
     margin:auto;
     color: var(--brand-white);
     padding: 0.5em;
+    position: absolute;
+    bottom: 80px;
+    left: 0;
 }
 
 .competition-title-1 {
