@@ -203,44 +203,47 @@ p {
     left: 0;
 }
 
-.competition-title-1 {
+.page-title {
     font-size: 4em;
     text-align: center;
     font-weight:500;
     margin:auto;
+    padding: 0.5em;
+}
+
+#competition-title-1 {
     color: var(--brand-black);
-    padding: 0.5em;
 }
 
-.competition-title-2 {
-    font-size: 4em;
-    text-align: center;
-    font-weight:500;
-    margin:auto;
+#competition-title-2 {
     color: var(--brand-yellow);
-    padding: 0.5em;
 }
 
-.competition-subheading-1 {
+#resources-title-1 {
+    color:var(--brand-white)
+}
+
+.page-subheading {
     font-size: 1.5em;
     text-align: center;
     font-weight:500;
     margin:auto;
     line-height:80%;
+    padding-bottom: 1em;
+    padding-top: 0.4em;
+}
+
+#competition-subheading-1 {
     color: var(--brand-dark-gray);
-    padding-bottom: 1em;
-    padding-top: 0.4em;
 }
 
-.competition-subheading-2 {
-    font-size: 1.5em;
-    text-align: center;
-    font-weight:500;
-    margin:auto;
-    line-height:80%;
+#competition-subheading-2 {
     color: var(--brand-light-gray);
-    padding-bottom: 1em;
-    padding-top: 0.4em;
+}
+
+#news-subheading {
+    color: var(--brand-white);
+    vertical-align: top;
 }
 
 .competition-text-1 {
@@ -274,6 +277,15 @@ p {
     max-width:100%;
 }
 
+.resources-img{
+    width: 500px;
+    margin: auto;
+    text-align:center;
+    display: block;
+    padding-top:1em;
+    padding-bottom:1em;
+}
+
 .circular-image {
     border-radius: 50%;
     height:auto;
@@ -284,11 +296,11 @@ p {
 }
 
 #debatingcompetitions {
-        max-width: 70%;
+    max-width: 70%;
 }
 
 #publicspeakingcompetitions {
-        max-width: 35%;
+    max-width: 35%;
 }
 
 /* --- Nav --- */
@@ -369,6 +381,11 @@ p {
     border: 0px solid white;
 }
 
+.col-lg-4 {
+    border: 1px solid red;
+    height:100%;
+}
+
 .col-md-4{
     border: 0px solid white;
     padding-top:2em;
@@ -378,6 +395,10 @@ p {
 .row {
     border: 0px solid blue;
     padding: 1em 0 1em 0;
+}
+
+#news-row {
+    padding: 1em 1em 1em 1em;
 }
 
 .aboutus-card{
