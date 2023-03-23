@@ -190,30 +190,30 @@ p {
 }
 
 .competition-subheading-1 {
-    font-size: 3em;
+    font-size: 1.5em;
     text-align: center;
     font-weight:500;
     margin:auto;
     line-height:80%;
-    color: var(--brand-white);
-    padding-bottom: 0.4em;
+    color: var(--brand-dark-gray);
+    padding-bottom: 1em;
     padding-top: 0.4em;
 }
 
 .competition-subheading-2 {
-    font-size: 3em;
+    font-size: 1.5em;
     text-align: center;
     font-weight:500;
     margin:auto;
     line-height:80%;
-    color: var(--brand-black);
-    padding-bottom: 0.4em;
+    color: var(--brand-light-gray);
+    padding-bottom: 1em;
     padding-top: 0.4em;
 }
 
 .competition-text-1 {
     text-align:center;
-    color: var(--brand-black);
+    color: var(--brand-light-gray);
     margin:auto;
     text-overflow:auto;
     line-height:20px;
@@ -222,11 +222,11 @@ p {
 
 .competition-text-2 {
     text-align:center;
-    color: var(--brand-white);
+    color: var(--brand-dark-gray);
     margin:auto;
     text-overflow:auto;
     line-height:20px;
-    max-width:90%;
+    max-width:50%;
 }
 
 /* --- Media --- */
@@ -244,6 +244,19 @@ p {
 
 .circular-image {
     border-radius: 50%;
+    height:auto;
+    margin:auto;
+    display:block;
+    padding-top:2em;
+    padding-bottom:2em;
+}
+
+#debatingcompetitions {
+        max-width: 70%;
+}
+
+#publicspeakingcompetitions {
+        max-width: 35%;
 }
 
 /* --- Nav --- */
@@ -376,6 +389,9 @@ p {
     color:var(--brand-light-gray);
 }
 
+.card {
+    --bs-card-border-color:0px white;
+}
 /*--- Footer --- */
 
 .footer-content{
