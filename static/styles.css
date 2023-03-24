@@ -81,7 +81,7 @@ a.btn, a.btn-circle {
     left: 60px;
     text-align:center;
     display:inline;
-    padding: 1.1em 3.6em 1.1em 3.75em;
+    padding: 0.9em 3.4em 0.9em 3.55em;
 }
 
 #publicspeakingbutton {
@@ -95,6 +95,7 @@ a.btn, a.btn-circle {
     left: 300px;
     text-align:center;
     display:inline;
+    padding: 0.9em 1.1em 0.9em 1.3em;
 }
 
 .parallax-container {
@@ -117,7 +118,7 @@ a.btn, a.btn-circle {
 }
 
 #parallax3 {
-    background-image: url("images/WC+KCPremA - Edited.png");
+    background-image: url(images/WC+KCPremA - Edited.png);
 }
 
 /* --- Body --- */
@@ -194,7 +195,7 @@ p {
 .page-header {
     font-size: 7em;
     text-align:center;
-    font-weight:300;
+    font-weight:400;
     margin:auto;
     color: var(--brand-white);
     padding: 0.5em;
@@ -220,7 +221,13 @@ p {
 }
 
 #resources-title-1 {
-    color:var(--brand-white)
+    color:var(--brand-white);
+    background-color:rgba(248,216,101,.8);
+    position:relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    padding:2em;
 }
 
 .page-subheading {
@@ -244,6 +251,10 @@ p {
 #news-subheading {
     color: var(--brand-white);
     vertical-align: top;
+}
+
+#resources-subheading {
+    color:var(--brand-white);
 }
 
 .competition-text-1 {
@@ -278,12 +289,12 @@ p {
 }
 
 .resources-img{
-    width: 500px;
+    width: 550px;
     margin: auto;
     text-align:center;
     display: block;
-    padding-top:1em;
-    padding-bottom:1em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
 }
 
 .circular-image {
@@ -387,9 +398,9 @@ p {
     flex: 1;
     flex-flow: column wrap;
     justify-content: center;
-    border: 1px solid gray;
-    margin-left:5px;
-    margin-right:5px;
+    border-radius:3%;
+    margin-left:1em;
+    margin-right:1em;
     margin-top: 10px;
     padding: 5px;
 }
@@ -411,6 +422,23 @@ p {
     border: 0px solid white;
     padding-top:2em;
     padding-bottom: 2em;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    background-color: #2196F3;
+    padding:8px;
+    margin-left:8em;
+    margin-right:8em;
+}
+
+.grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding:15px;
+    font-size: 30px;
 }
 
 .row {
@@ -484,8 +512,8 @@ p {
 /* Month header */
 .month {
     padding: 70px 25px;
-    width: 90%;
-    background:var(--brand-light-gray);
+    width: 95%;
+    background:var(--brand-dark-gray);
     text-align: center;
     margin:auto;
 }
@@ -518,7 +546,7 @@ p {
 /* Weekdays (Mon-Sun) */
 .weekdays {
     margin: auto;
-    width:90%;
+    width:95%;
     padding: 10px 0;
     background-color:#ddd;
 }
@@ -535,7 +563,7 @@ p {
     padding: 10px 0;
     background: #eee;
     margin: auto;
-    width:90%;
+    width:95%;
 }
 
 .days li {
@@ -554,12 +582,13 @@ p {
     background: #1abc9c;
     color: white !important
 }
+
 /*--- Footer --- */
 
 .footer-content{
     background-color: var(--brand-dark-gray);
     text-align: center;
-    padding: 1em 0 0.5em 0;
+    padding: 1em 0 0.25em 0;
     color: var(--brand-white);
 }
 
@@ -573,7 +602,7 @@ p {
     font-weight: 400;
     font-size: 1em;
     text-align: center;
-    padding-bottom: 1em;
+    padding-bottom: 0.25em;
 }
 
 .footer-link{
