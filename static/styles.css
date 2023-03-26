@@ -118,7 +118,7 @@ a.btn, a.btn-circle {
 }
 
 #parallax3 {
-    background-image: url(images/WC+KCPremA - Edited.png);
+    background-image: url("images/WC+KCPremA - Edited.png");
 }
 
 /* --- Body --- */
@@ -220,14 +220,29 @@ p {
     color: var(--brand-yellow);
 }
 
-#resources-title-1 {
+#news-title-1 {
     color:var(--brand-white);
-    background-color:rgba(248,216,101,.8);
     position:relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%,50%);
     padding:2em;
+}
+
+.resources-title-1 {
+    position:absolute;
+    top: 30%;
+    left: 22%;
+    background-color:rgba(248,216,101,0.9);
+    color:white;
+    font-size:2em;
+    text-align:center;
+    font-weight:500;
+    padding:1em;
+    overflow:auto;
+    line-height:1em;
+    max-width:300px;
+    height:200px;
 }
 
 .page-subheading {
@@ -289,7 +304,7 @@ p {
 }
 
 .resources-img{
-    width: 550px;
+    width: 400px;
     margin: auto;
     text-align:center;
     display: block;
@@ -350,8 +365,16 @@ p {
 
 /*--- Layout --- */
 
-.welcome-bg {
+.light-gray-bg {
     background-color: var(--brand-light-gray);
+}
+
+.yellow-bg{
+    background-color: var(--brand-yellow);
+}
+
+.dark-gray-bg {
+    background-color: var(--brand-dark-gray);
 }
 
 .welcome-box{
@@ -360,14 +383,6 @@ p {
     transform: translateX(150px);
     max-width:48%;
     padding-bottom:3em;  
-}
-
-.competition-bg-1{
-    background-color: var(--brand-yellow);
-}
-
-.competition-bg-2{
-    background-color: var(--brand-light-gray);
 }
 
 .container-fluid{
@@ -386,6 +401,12 @@ p {
 .container-hero {
     border:3px solid white;
     padding: 0 1em 2em 1em;
+}
+
+.img-container {
+    position: relative;
+    background-color: var(--brand-light-gray);
+    border: 0.5em solid white;
 }
 
 .main-container {
@@ -427,17 +448,17 @@ p {
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;
-    gap: 10px;
-    background-color: #2196F3;
-    padding:8px;
-    margin-left:8em;
-    margin-right:8em;
+    gap: 4em;
+    margin-left:6em;
+    margin-right:6em;
+    margin-top:2em;
+    margin-bottom:2em;
+    padding:2em;
+    position:relative;
 }
 
 .grid-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    padding:15px;
     font-size: 30px;
 }
 
