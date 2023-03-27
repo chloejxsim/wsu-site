@@ -112,6 +112,8 @@ a.btn, a.btn-circle {
     width:150px;
     margin-left:15px;
     margin-right:15px;
+    margin-top:10px;
+    margin-bottom:10px;
 }
 
 .parallax-container {
@@ -243,19 +245,21 @@ p {
 }
 
 .resources-title-1 {
-    position:absolute;
-    top: 30%;
-    left: 22%;
     background-color:rgba(248,216,101,0.9);
     color:white;
     font-size:2em;
-    text-align:center;
+    text-align:left;
     font-weight:500;
-    padding:1em;
-    overflow:auto;
+    padding:2.5em;
     line-height:1em;
-    max-width:300px;
-    height:200px;
+    max-width:50%;
+    max-height:70%;
+    display:block;
+    position:absolute;
+    top:16%;
+    left:25%;
+    float: right;
+
 }
 
 .page-subheading {
@@ -321,12 +325,12 @@ p {
 }
 
 .resources-img{
-    width: 400px;
-    margin: auto;
+    max-width: 70%;
+    margin:auto;
     text-align:center;
     display: block;
-    padding-top:0.5em;
-    padding-bottom:0.5em;
+    border: 10px solid var(--brand-dark-gray);
+    border-radius:5%;
 }
 
 .circular-image {
@@ -350,7 +354,10 @@ p {
 
 .navbar{
     background-color: var(--brand-dark-gray);
-    border-bottom: 1em solid white;
+    position:sticky;
+    top:0;
+    z-index: 9999;
+    margin-bottom: 1em;
 }
 
 .nav-item:hover{
@@ -380,19 +387,19 @@ p {
     background-color: var(--brand-yellow);
 }
 
-.topnav input[type=text] {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .content {
+    padding-top: 60px;
 }
 
 .secondary-nav {
     text-align:center;
     padding:1.5em;
-    margin-bottom:0px;
 }
 /*--- Layout --- */
 
@@ -474,6 +481,19 @@ p {
     border: 0px solid white;
     padding-top:2em;
     padding-bottom: 2em;
+}
+
+#resources-col {
+    position:relative;
+    margin-left:1.5em;
+    border-radius:5%;
+    /*
+    background-color:var(--brand-light-gray);
+    padding-top:3em;
+    padding-bottom:3em;
+    padding-left:0.5em;
+    padding-right:0.5em;
+     */
 }
 
 .grid-container {
