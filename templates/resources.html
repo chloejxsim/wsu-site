@@ -17,77 +17,204 @@ Resources
 
 <div class="container-fluid">
 
-    <style>
+<style>
 
 .accordion{
-    --bs-accordion-bg:var(--brand-light-gray);
-    --bs-accordion-btn-focus-border-color:var(--brand-dark-gray);
-  /* text */
+  --bs-accordion-bg:var(--brand-light-gray);
+  --bs-accordion-btn-focus-border-color:var(--brand-dark-gray);
   --bs-accordion-active-color:var(--brand-white);
-  --bs-accordion-active-bg:var(--brand-dark-gray);
-  --bs-accordion-border-width:0;
+  --bs-accordion-active-bg:var(--brand-white);
+  --bs-accordion-border-width:10px;
 }
 
 .accordion-item{
-   background-color:var(--brand-white);
+  background-color:var(--brand-white);
+  border: var(--bs-accordion-border-width) solid var(--brand-white);
 }
+
 .accordion-button{
     border-bottom: 1px solid white;
     font-size: 2em;
     color:white;
 }
+
 .accordion-button:hover{
     background-color:var(--brand-dark-gray);
 }
 
-    </style>
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 30px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+input[type=submit] {
+  background-color:var(--brand-yellow);
+  color:var(--brand-black);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color:var(--brand-light-gray);
+  color:var(--brand-white);
+}
+
+.a-resources{
+  text-align:center;
+  display:block;
+  font-size:1.5em;
+}
+
+.a-resources:link {
+  color:var(--brand-yellow);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.a-resources:visited {
+  color:var(--brand-yellow);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.a-resources:hover {
+  color:var(--brand-dark-gray);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.a-resources:active {
+  color:var(--brand-dark-gray);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+</style>
 
 <div class="accordion accordion-flush" id="accordionFlushExample">
 
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        for students
+      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+               aria-expanded="false" aria-controls="flush-collapseOne">
+        students
       </button>
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+      <div class="accordion-body">
+        <div class="container-m container-fluid mx-auto w-75">
+          <div class="row align-items-center">
+            <div class="col-md-7">
+              <img class="resources-img" src="/static/images/HenSpeaking2%20-%20Edited.png">
+            </div>
+            <div class="col-md-5">
+              <h1 class="page-title">hello</h1>
+              <a class="a-resources" href="https://www.asf.edu.mx/learning/events/asomex-debate-tournament/debating" target="_blank">ASF: Debating Guide</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingTwo">
       <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        for teachers
+        teachers
       </button>
     </h2>
     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+      <div class="accordion-body">
+        <div class="container-m container-fluid mx-auto w-75">
+          <div class="row align-items-center">
+            <div class="col-md-5">
+              <h1 class="page-title">hello</h1>
+              <p style="color:black;">hellp</p>
+            </div>
+            <div class="col-md-7">
+              <img class="resources-img" src="/static/images/HenSpeaking2%20-%20Edited.png">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingThree">
       <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        for coaches
+        coaches
       </button>
     </h2>
     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+      <div class="accordion-body">
+        <div class="container-m container-fluid mx-auto w-75">
+          <div class="row align-items-center">
+            <div class="col-md-7">
+              <img class="resources-img" src="/static/images/HenSpeaking2%20-%20Edited.png">
+            </div>
+            <div class="col-md-5">
+              <h1 class="page-title">hello</h1>
+              <p style="color:black;">hellp</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingFour">
       <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-        for judges
+        judges
       </button>
     </h2>
     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+      <div class="accordion-body">
+        <div class="container-m container-fluid mx-auto w-75">
+          <div class="row align-items-center">
+            <div class="col-md-5">
+              <h1 class="page-title">hello</h1>
+              <p style="color:black;">hellp</p>
+            </div>
+            <div class="col-md-7">
+              <img class="resources-img" src="/static/images/HenSpeaking2%20-%20Edited.png">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
+</div>
+
+<div class="container-m container-fluid">
+    <h1 class="aboutus-heading">contact us</h1>
+</div>
+
+<div class="contactus-container">
+  <form>
+
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname">
+
+    <label for="subject">Question</label>
+    <textarea id="subject" name="subject" style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+
+  </form>
 </div>
 
 
