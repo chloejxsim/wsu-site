@@ -426,6 +426,16 @@ p {
     margin-right: 0;
 }
 
+.aboutus-container{
+    background-color: rgb(255,255,255);
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top:1em;
+    padding-bottom:1em;
+}
+
 .container-hero {
     border:3px solid white;
     padding: 0 1em 2em 1em;
@@ -508,18 +518,16 @@ p {
     box-shadow: 0 4px 8px 0 rgba(70,67,68,0.4);
     transition: 0.3s; 
     max-width:80%;
-    height: 100% !important;
-    margin: auto;
+    min-height: 100%;
+    margin-left:5em;
+    margin-right:5em;
+    margin-top:2em;
     padding-top:2em;
+    border:0px solid blue;
 }
 
 .aboutus-card:hover {
     box-shadow: 0 8px 16px 0 rgba(70,67,68,0.4);
-}
-
-.aboutus-container{
-    padding: 10px 2px 30px 2px;
-    align-items:stretch;
 }
 
 .aboutus-button {
