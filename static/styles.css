@@ -350,6 +350,10 @@ p {
     margin-bottom: 1em;
 }
 
+.navbar-toggler{
+    border:1px solid var(--brand-white);
+}
+
 .nav-item:hover{
     background-color:var(--brand-yellow);
 }
@@ -546,6 +550,7 @@ p {
     font-size: 15px;
     text-transform: uppercase;
     padding: 0.75em 0.5em 0.75em 0.5em;
+    overflow: hidden;
 }
 
 .aboutus-button:hover {
@@ -780,6 +785,17 @@ input[type=submit]:hover {
     }
     .welcome-text{
         text-align:center;
+    }
+    .news-card{
+        max-width:78%;
+        margin-bottom:2em;
+    }
+    .container{
+        border-radius:1%;
+        margin-top:1em;
+    }
+    .nav-btn-outline{
+        padding: 0.5em 0 0.5em 0;
     }
 }
 
