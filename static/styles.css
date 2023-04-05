@@ -815,3 +815,22 @@ input[type=submit]:hover {
     }
     
 }
+
+@media (max-width: 992px) {
+    .card-group {
+        display: flex ;
+        flex-flow: row wrap;
+        flex-direction: column;
+    }
+    .aboutus-card {
+    box-shadow: 0 4px 8px 0 rgba(70,67,68,0.4);
+    transition: 0.3s;
+    max-width: 80%;
+    min-height: 100%;
+    margin-left: 5em !important;
+    margin-right: 5em;
+    margin-top: 2em;
+    padding-top: 2em;
+    border: 0px solid blue;
+    }
+}
