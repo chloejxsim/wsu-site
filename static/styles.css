@@ -409,6 +409,10 @@ p {
     background-color: var(--brand-dark-gray);
 }
 
+.white-bg {
+    background-color: var(--brand-white);
+}
+
 .welcome-box{
     text-align: center;
     background-color:rgba(248,216,101,.8);
