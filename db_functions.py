@@ -123,40 +123,6 @@ def execute_external_script(sql_script_path, db_path):
 
 if __name__ == "__main__":
     sql_path = 'data/create_db.sql'
-    db_path = 'data/pasta_db.sqlite'
+    db_path = 'data/wsusite_db.sqlite'
     execute_external_script(sql_path, db_path)
-    f = "data/pasta.csv"
-    data = file_reader(f)
-    sql = "insert into food(title, price, description, type)values(?,?,?,?)"
-    for d in data:
-        run_commit_query(sql, tuple(d), db_path)
-    combos = [
-        ('Classic', 'Old school Italian pasta dinner', 4),
-        ('Allergy free', 'This dinner combo is nut free, dairy free, gluten free and vegan', 4),
-        ('Padua', 'A North Italian selection', 4),
-        ('Sienna', 'A simple selection for a night at home', 2),
-    ]
-    sql = "insert into combo(name, description, feeds)values(?,?,?)"
-    for c in combos:
-        run_commit_query(sql, c, db_path)
-    combo_menu = {
-        'Classic': ['CONCHIGLIE ALLA BOLOGNESE', 'FETTUCCINE CARBONARA',
-                    'CASARECCE PRIMAVERA', 'RAVIOLI DI RICOTTA', '1154 GARLIC & ROSEMARY ROLL',
-                    'MARINATED OLIVES', 'PANNA COTTA', 'TORTA CIOCCOLATO'],
-        'Allergy free': ['VEGAN AGLIO OLIO', 'VEGAN VESUVIANA', 'VEGAN POMODORO', 'VEGAN PESTO',
-                         'GREENS', 'TORTA CIOCCOLATO'],
-        'Padua': ['FUSILLI ALLA VODKA', 'SPAGHETTI AGLIO OLIO E GAMBERETTI', 'RIGATONI POMODORO',
-                  'RAVIOLI DI RICOTTA', 'GIARDINIERA', 'ROCKET', 'PANNA COTTA', 'TORTA CIOCCOLATO'],
-        'Sienna': ['LINGUINE VESUVIANA', 'RIGATONI POMODORO', 'MARINATED OLIVES', 'ROCKET', 'PANNA COTTA']
-    }
-    # for combo, dishes in the dictionary
-    # select to get id of combo
-    # loop through dishes and get ids
-    for combo, dishes in combo_menu.items():
-        for d in dishes:
-            sql = """insert into combo_menu(combo_id, food_id)values(
-            (select combo_id from combo where name=?), (select food_id from food where title =?)
-            )
-            """
-            values_tuple = (combo, d)
-            run_commit_query(sql, values_tuple, db_path)
+
