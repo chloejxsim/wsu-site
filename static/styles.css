@@ -489,6 +489,8 @@ p {
 
 .recent-container {
     min-width: 200px;
+    max-height:432px;
+    overflow: scroll;
 }
 
 .col-lg-7, .col-lg-5, .col-lg-6 {
@@ -578,6 +580,65 @@ p {
 
 .card-title {
     text-align:center;
+}
+
+/* news page */
+
+.recent-news-heading {
+    font-size: 2.5em;
+    text-align: center;
+    font-weight:400;
+    margin: 0;
+    color: var(--brand-black);
+}
+
+.recent-news-subheading {
+    font-size: 1.5em;
+    text-align: center;
+    font-weight:300;
+    margin: 0;
+    color: var(--brand-black);
+}
+
+.recent-news-text {
+    text-align:center;
+    color: var(--brand-dark-gray);
+    margin:auto;
+    text-overflow:auto;
+    line-height:20px;
+}
+
+.recent-news-containers {
+    border-radius:10px;
+    margin-left:0.5em;
+    margin-right:0.5em;
+    padding:1em;
+    margin-top:0;
+}
+
+.recent-news-button {
+    transition: none !important;
+    border-radius: 2px;
+    background-color: var(--brand-white);
+    color:var(--brand-dark-gray);
+    border-color:var(--brand-dark-gray);
+    position: relative;
+    text-align:center;
+    display:inline-block;
+    padding: 0.4em 0.6em;
+}
+
+.meta{
+    text-align:right;
+}
+
+.meta-text{
+    font-style: italic;
+    font-weight:300;
+    text-align:right;
+    color:var(--brand-dark-gray);
+    padding:0.5em;
+    font-size:0.75em;
 }
 
 /* Month header */

@@ -6,67 +6,6 @@ News
 
 {% block content %}
 
-<style>
-
-.recent-news-heading {
-    font-size: 2.5em;
-    text-align: center;
-    font-weight:400;
-    margin: 0;
-    color: var(--brand-black);
-}
-
-.recent-news-subheading {
-    font-size: 1.5em;
-    text-align: center;
-    font-weight:300;
-    margin: 0;
-    color: var(--brand-black);
-}
-
-.recent-news-text {
-    text-align:center;
-    color: var(--brand-dark-gray);
-    margin:auto;
-    text-overflow:auto;
-    line-height:20px;
-}
-
-.recent-news-containers {
-    border-radius:10px;
-    margin-left:0.5em;
-    margin-right:0.5em;
-    padding:1em;
-    margin-top:0;
-}
-
-.recent-news-button {
-    transition: none !important;
-    border-radius: 2px;
-    background-color: var(--brand-white);
-    color:var(--brand-dark-gray);
-    border-color:var(--brand-dark-gray);
-    position: relative;
-    text-align:center;
-    display:inline-block;
-    padding: 0.4em 0.6em;
-}
-
-.meta{
-    text-align:right;
-}
-
-.meta-text{
-    font-style: italic;
-    font-weight:300;
-    text-align:right;
-    color:var(--brand-dark-gray);
-    padding:0.5em;
-    font-size:0.75em;
-}
-
-</style>
-
 <section class="parallax-container parallax3">
     <h1>news</h1>
     <h1>keep up to date with upcoming and latest news</h1>
@@ -125,24 +64,29 @@ News
     </div>
 
   <div class="container light-gray-bg">
-    <h1 class="page-title competition-title-2">recent</h1>
+
+      <h1 class="page-title competition-title-2">recent</h1>
+
     <div class="inner-container recent-container">
+
+        {% for row in news %}
         <div class="container-m recent-news-containers white-bg">
-            <h1 class="recent-news-heading">regionals</h1>
+            <h1 class="recent-news-heading"> {{ row['title'] }} </h1>
             <hr>
-            <h3 class="recent-news-subheading">upcoming wellington regionals</h3>
+            <h3 class="recent-news-subheading"> {{ row['subtitle'] }} </h3>
             <hr>
-            <p class="recent-news-text">join us in the upcoming wellington regionals</p>
+            <p class="recent-news-text"> {{ row['content'] | replace("\n", "<br>") | safe}} </p>
             <br>
             <div class="meta">
-            <p class="meta-text">Posted by Florence on Sat 04 Mar 23 20:30</p>
-            <button class="btn btn-primary recent-news-button">update</button>
-            <button class="btn btn-primary recent-news-button">delete</button>
+            <p class="meta-text">Posted by {{ row['name'] }} on {{ row['newsdate'] | news_date}}  </p>
+            <a class="btn btn-primary recent-news-button" href="">update</a>
+            <a class="btn btn-primary recent-news-button" href="">delete</a>
             </div>
         </div>
-
+        {% endfor %}
 
     </div>
+
   </div>
 
   </div>

@@ -41,7 +41,7 @@ values('Prem A!',
        'please let me know either through email or in this comment section. ' || char(10) ||
        'Thank you!',
        '2023-03-19 17:41:00',
-       (select member_id from member where name="Ri" )
+       (select member_id from member where name='Ri' )
        );
 
 insert into news(title, subtitle, content, newsdate, member_id)
@@ -54,5 +54,5 @@ values('Regionals',
        'encourage new schools to consider entering a team this year. It’s a great opportunity for students to develop their debating ' ||
        'skills and compete against other like minded students in the region! ',
        '2023-03-30 16:30:00',
-       (select member_id from member where name="Florence" )
+       (select member_id from member where name='Florence' )
        );
