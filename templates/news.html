@@ -67,6 +67,10 @@ News
 
       <h1 class="page-title competition-title-2">recent</h1>
 
+      <div class="py-2 text-center">
+          <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=0, task='add') }}">add news</a>
+      </div>
+
     <div class="inner-container recent-container">
 
         {% for row in news %}
@@ -79,8 +83,8 @@ News
             <br>
             <div class="meta">
             <p class="meta-text">Posted by {{ row['name'] }} on {{ row['newsdate'] | news_date}}  </p>
-            <a class="btn btn-primary recent-news-button" href="">update</a>
-            <a class="btn btn-primary recent-news-button" href="">delete</a>
+            <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='update') }}">update</a>
+            <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">delete</a>
             </div>
         </div>
         {% endfor %}
