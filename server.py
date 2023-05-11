@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from db_functions import run_search_query_tuples
+from db_functions import run_search_query_tuples, run_commit_query
 from datetime import datetime
 
 app = Flask ( __name__ )
@@ -47,15 +47,41 @@ def news_cud():
     # have an ID and a task key
     if request.method == "GET":
         if data['task'] == 'delete':
-            return "<h1> I want to delete </h1>"
+            sql = "delete from news where news_id = ?"
+            values_tuple = (data['id'],)
+            result = run_commit_query(sql, values_tuple, db_path)
+            return redirect(url_for('news'))
         elif data['task'] == 'update':
+            sql = """ select title, subtitle, content from news where news_id=?"""
+            values_tuple = (data['id'])
+            result = run_search_query_tuples(sql, values_tuple, db_path, True)
+            result = result[0]
+            return render_template("news_cud.html",
+                                   title=result)
             return "<h1> I want to update </h1>"
         elif data['task'] == 'add':
-            return "<h1> I want to update </h1>"
+            temp = {'title': 'Test Title', 'subtitle': 'Test subtitle', 'content': 'Test content' }
+            return render_template("news_cud.html", id=0, task=data['task'],
+                                   title=temp['title'],
+                                   subtitle=temp['subtitle'],
+                                   content=temp['content'])
         else:
             message = "Unrecognised task coming from news page"
             return render_template('error.html', message=message)
-
+    elif request.method == "POST":
+        # collected form information
+        f = request.form
+        print(f)
+        if data['task'] == 'add':
+            # add new news entry to the database
+            # member is fixed for now
+            sql = """insert into news(title,subtitle,content, newsdate, member_id)
+                        values(?,?,?, datetime('now'),2)"""
+            values_tuple = (f['title'], f['subtitle'], f['content'])
+            result = run_commit_query(sql, values_tuple, db_path)
+            return redirect(url_for('news'))
+        else:
+            return "<h1> Posting for update </h1>"
     return render_template("news_cud.html")
 
 if __name__ == "__main__":

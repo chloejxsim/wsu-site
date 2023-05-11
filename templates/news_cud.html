@@ -9,7 +9,7 @@ Our News
 
   <div class="news p-4 my-4">
     <h2>Please enter/update your news item</h2>
-    <form action="" method="POST">
+    <form action="{{url_for('news_cud', id=id, task=task)}}" method="POST">
       <div>
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{title}}" required>
@@ -19,7 +19,7 @@ Our News
         <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="" value="{{subtitle}}" required>
       </div>
       <div>
-        <label for="content" class="form-label">News content</label>
+        <label for="content" class="form-label">News Content</label>
         <textarea class="form-control" id="content" name="content" rows="7" required> {{content}} </textarea>
       </div>
       <div class="text-end">
