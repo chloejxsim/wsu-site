@@ -57,14 +57,15 @@ def news_cud():
             result = run_search_query_tuples(sql, values_tuple, db_path, True)
             result = result[0]
             return render_template("news_cud.html",
-                                   title=result)
-            return "<h1> I want to update </h1>"
+                                    **result,
+                                   id=data['id'],
+                                   task=data['task'])
         elif data['task'] == 'add':
             temp = {'title': 'Test Title', 'subtitle': 'Test subtitle', 'content': 'Test content' }
-            return render_template("news_cud.html", id=0, task=data['task'],
-                                   title=temp['title'],
-                                   subtitle=temp['subtitle'],
-                                   content=temp['content'])
+            return render_template("news_cud.html",
+                                   id=0,
+                                   task=data['task'],
+                                   **temp)
         else:
             message = "Unrecognised task coming from news page"
             return render_template('error.html', message=message)
@@ -76,13 +77,20 @@ def news_cud():
             # add new news entry to the database
             # member is fixed for now
             sql = """insert into news(title,subtitle,content, newsdate, member_id)
-                        values(?,?,?, datetime('now'),2)"""
+                        values(?,?,?, datetime('now', 'localtime'),2)"""
             values_tuple = (f['title'], f['subtitle'], f['content'])
             result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('news'))
+        elif data['task'] == 'update':
+            sql = """update news set title=?, subtitle=?, content=?, newsdate=datetime('now') where news_id=?"""
+            values_tuple = (f['title'], f['subtitle'], f['content'], data['id'])
+            result = run_commit_query(sql, values_tuple, db_path)
+            # collect the data from the form and update the database at the sent id
+            return redirect(url_for('news'))
         else:
-            return "<h1> Posting for update </h1>"
-    return render_template("news_cud.html")
+            # let's put in an error catch
+            message = "Unrecognised task coming from news form submission"
+            return render_template('error.html', message=message)
 
 if __name__ == "__main__":
     app.run(debug=True)
