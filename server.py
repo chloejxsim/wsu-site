@@ -5,7 +5,6 @@ from datetime import datetime
 app = Flask ( __name__ )
 db_path = 'data/wsusite_db.sqlite'
 
-
 @app.template_filter()
 def news_date(sqlite_dt):
     x = datetime.strptime(sqlite_dt, '%Y-%m-%d %H:%M:%S')
@@ -35,7 +34,7 @@ def news():
     print(result)
     return render_template("news.html", news=result)
 
-@app.route ('/news_cud', methods=['GET', 'POST'])
+@app.route ('/news_cud', methods=["GET", "POST"])
 def news_cud():
     #collect data from the web address
     data = request.args
@@ -91,6 +90,40 @@ def news_cud():
             # let's put in an error catch
             message = "Unrecognised task coming from news form submission"
             return render_template('error.html', message=message)
+
+@app.route ('/login', methods=["GET", "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("log-in.html", email='ri@yahoo.com', password="temp")
+    elif request.method == "POST":
+        f = request.form
+        print(f)
+        sql = """ select name, password, authorisation from member where email = ?"""
+        values_tuple=(f['email'])
+        result = run_search_query_tuples(sql, values_tuple, db_path, True)
+        print(result)
+        return "<h1> Posting from log in form </h1>"
+
+@app.route('/signup', methods=["GET", "POST"])
+def signup():
+    if request.method == "POST":
+        f = request.form
+        return render_template("confirm.html", form_data=f)
+    elif request.method == "GET":
+        carried_data = request_args
+        print(carried_data)
+        if len(carried_data) == 0:
+            temp_form_data = {
+                "firstname": "James",
+                "secondname": "Lovelock",
+                "email": "jl@gmail.com",
+                "aboutme": "I have been in love with Italian food all my life"
+            }
+            # temp_form_data = {}
+        else:
+            temp_form_data = carried_data
+        return render_template("signup.html", **temp_form_data)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
