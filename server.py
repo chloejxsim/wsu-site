@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from db_functions import run_search_query_tuples, run_commit_query
 from datetime import datetime
 
 app = Flask ( __name__ )
+app.secret_key = "sjklfdsjlfajdalksf"
 db_path = 'data/wsusite_db.sqlite'
 
 @app.template_filter()
@@ -93,19 +94,22 @@ def news_cud():
 
 @app.route ('/login', methods=["GET", "POST"])
 def login():
+    print(session)
     error = "Your credentials are not recognised"
     if request.method == "GET":
         return render_template("log-in.html", email='m@g.com', password="temp")
     elif request.method == "POST":
         f = request.form
-        print(f)
         sql = """ select name, password, authorisation from member where email = ?"""
         values_tuple=(f['email'],)
         result = run_search_query_tuples(sql, values_tuple, db_path, True)
         if result:
             result = result[0]
             if result['password'] == f['password']:
-                print("Log in okay")
+                #start a session
+                session['name']=result['name']
+                session['authorisation']=result['authorisation']
+                print(session)
                 return redirect(url_for('index'))
             else:
                 return render_template("log-in.html", email='m@g.com', password="temp", error=error)
