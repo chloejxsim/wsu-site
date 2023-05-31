@@ -77,8 +77,8 @@ def news_cud():
             # add new news entry to the database
             # member is fixed for now
             sql = """insert into news(title,subtitle,content, newsdate, member_id)
-                        values(?,?,?, datetime('now', 'localtime'),2)"""
-            values_tuple = (f['title'], f['subtitle'], f['content'])
+                        values(?,?,?, datetime('now', 'localtime'),?)"""
+            values_tuple = (f['title'], f['subtitle'], f['content'], session['member_id'])
             result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('news'))
         elif data['task'] == 'update':
@@ -100,7 +100,7 @@ def login():
         return render_template("log-in.html", email='m@g.com', password="temp")
     elif request.method == "POST":
         f = request.form
-        sql = """ select name, password, authorisation from member where email = ?"""
+        sql = """ select member_id,  name, password, authorisation from member where email = ?"""
         values_tuple=(f['email'],)
         result = run_search_query_tuples(sql, values_tuple, db_path, True)
         if result:
