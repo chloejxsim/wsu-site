@@ -48,8 +48,13 @@
         </ul>
 
         <div class="ms-auto">
+            {% if session %}
+            <a class="nav-link nav-btn nav-btn-outline" href="{{ url_for('logout') }}">log out</a>
+            {% else %}
             <a class="nav-link nav-btn nav-btn-outline" href="{{ url_for('login') }}">log in</a>
+            {% endif %}
         </div>
+
     </div>
 
 </nav>

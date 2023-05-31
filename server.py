@@ -116,6 +116,11 @@ def login():
         else:
             return render_template("log-in.html", email='m@g.com', password="temp", error=error)
 
+@app.route ('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
 
 @app.route('/signup', methods=["GET", "POST"])
 def signup():

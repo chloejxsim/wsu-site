@@ -395,6 +395,13 @@ p {
     text-align:center;
     padding:1.5em;
 }
+
+.session{
+    background-color:var(--brand-yellow);
+    color:var(--brand-dark-gray);
+    text-align:center;
+    font-size: 2em;
+}
 /*--- Layout --- */
 
 .light-gray-bg {
