@@ -1,3 +1,5 @@
+import sqlite3
+
 from flask import Flask, render_template, request, redirect, url_for, session
 from db_functions import run_search_query_tuples, run_commit_query
 from datetime import datetime
@@ -76,7 +78,7 @@ def news_cud():
         if data['task'] == 'add':
             # add new news entry to the database
             # member is fixed for now
-            sql = """insert into news(title,subtitle,content, newsdate, member_id)
+            sql = """insert into news(title, subtitle, content, newsdate, member_id)
                         values(?,?,?, datetime('now', 'localtime'),?)"""
             values_tuple = (f['title'], f['subtitle'], f['content'], session['member_id'])
             result = run_commit_query(sql, values_tuple, db_path)
@@ -109,6 +111,7 @@ def login():
                 #start a session
                 session['name']=result['name']
                 session['authorisation']=result['authorisation']
+                session['member_id'] = result['member_id']
                 print(session)
                 return redirect(url_for('index'))
             else:
@@ -120,7 +123,6 @@ def login():
 def logout():
     session.clear()
     return redirect(url_for('index'))
-
 
 @app.route('/signup', methods=["GET", "POST"])
 def signup():

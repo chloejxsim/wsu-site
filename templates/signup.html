@@ -14,19 +14,24 @@ Sign Up
 
 <div class="container-m p-5">
   <form action="{{ url_for('signup') }}" method="POST">
+
     <div>
       <label for="firstname" class="form-label">First Name</label>
       <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter Name" value="{{firstname}}" required >
     </div>
+
     <div>
       <label for="lastname" class="form-label">Last Name</label>
       <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Name" value="{{lastname}}" required >
     </div>
+
     <div>
       <label for="email" class="form-label">Email</label>
       <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" value="{{email}}" required >
     </div>
+
     <br>
+
     <div>
       <label for="aboutme" class="form-label">About Me</label>
       <textarea id="aboutme" class="form-control" name="aboutme" rows="5">{{aboutme}}</textarea>
