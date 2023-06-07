@@ -109,7 +109,7 @@ def login():
             result = result[0]
             if result['password'] == f['password']:
                 #start a session
-                session['name']=result['name']
+                session['firstname']=result['firstname']
                 session['authorisation']=result['authorisation']
                 session['member_id'] = result['member_id']
                 print(session)
@@ -128,26 +128,28 @@ def logout():
 def signup():
     referrer = request.referrer
     print(referrer)
-    if request.method == "POST":
+    if request.method == "GET":
+        temp_form_data = {
+            "firstname": "James",
+            "lastname": "Lovelock",
+            "email": "jl@gmail.com",
+            "password": "temp",
+        }
+        return render_template("signup.html", **temp_form_data)
+    elif request.method == "POST":
         f = request.form
-        sql = """insert into member(member_id, firstname, lastname, email, password, authorisation)
-                    values(?,?,?,?,?,1)"""
+        sql = """insert into member(firstname, lastname, email, password, authorisation)
+                    values(?,?,?,?,1)"""
         values_tuple = (f['firstname'], f['lastname'], f['email'], f['password'])
         result = run_commit_query(sql, values_tuple, db_path)
-        return render_template("confirm.html", form_data=f)
-    elif request.method == "GET":
-        carried_data = request.args
-        print(carried_data)
-        if len(carried_data) == 0:
-            temp_form_data = {
-                "firstname": "James",
-                "lastname": "Lovelock",
-                "email": "jl@gmail.com",
-                "password": "temp",
-            }
-        else:
-            temp_form_data = carried_data
-    return render_template("signup.html", **temp_form_data)
+        # assuming successful go to log-in
+        return render_template("log-in.html", form_data=f)
+    else:
+        # if result is a problem go to error page
+        message = "Unrecognised task coming from signup form submission"
+        return render_template('error.html', message=message)
+
+
 
 
 if __name__ == "__main__":
