@@ -28,7 +28,7 @@ def resources():
 @app.route ('/news')
 def news():
     # query for the page
-    sql = """select news.news_id, news.title, news.subtitle, news.content, news.newsdate, member.name
+    sql = """select news.news_id, news.title, news.subtitle, news.content, news.newsdate, member.firstname
         from news
         join member on news.member_id= member.member_id
         order by news.newsdate desc;
@@ -102,7 +102,7 @@ def login():
         return render_template("log-in.html", email='m@g.com', password="temp")
     elif request.method == "POST":
         f = request.form
-        sql = """ select member_id,  name, password, authorisation from member where email = ?"""
+        sql = """ select member_id, firstname, password, authorisation from member where email = ?"""
         values_tuple=(f['email'],)
         result = run_search_query_tuples(sql, values_tuple, db_path, True)
         if result:
@@ -130,6 +130,10 @@ def signup():
     print(referrer)
     if request.method == "POST":
         f = request.form
+        sql = """insert into member(member_id, firstname, lastname, email, password, authorisation)
+                    values(?,?,?,?,?,1)"""
+        values_tuple = (f['firstname'], f['lastname'], f['email'], f['password'])
+        result = run_commit_query(sql, values_tuple, db_path)
         return render_template("confirm.html", form_data=f)
     elif request.method == "GET":
         carried_data = request.args
@@ -139,7 +143,7 @@ def signup():
                 "firstname": "James",
                 "lastname": "Lovelock",
                 "email": "jl@gmail.com",
-                "aboutme": "I have been in love with Italian food all my life"
+                "password": "temp",
             }
         else:
             temp_form_data = carried_data

@@ -7,7 +7,8 @@ drop table if exists member;
 
 create table member(
     member_id integer primary key autoincrement not null,
-    name text not null,
+    firstname text not null,
+    lastname text not null,
     email text not null unique,
     password text not null,
     authorisation integer not null
@@ -23,14 +24,14 @@ create table news(
     foreign key(member_id) references member(member_id)
 );
 
-insert into member( name, email, password, authorisation)
-values ('Florence', 'm@g.com', 'temp', 0 );
-insert into member( name, email, password, authorisation)
-values ('Ri', 'ri@yahoo.com', 'temp', 0 );
-insert into member( name, email, password, authorisation)
-values ('Brooke', 'brookethecook@hotmail.com', 'temp', 0 );
-insert into member( name, email, password, authorisation)
-values ('Arushi', 'arushi@marsden.com', 'temp', 1 );
+insert into member( firstname, lastname, email, password, authorisation)
+values ('Florence', 'Oakley', 'm@g.com', 'temp', 0 );
+insert into member( firstname, lastname, email, password, authorisation)
+values ('Ri', 'Comer', 'ri@yahoo.com', 'temp', 0 );
+insert into member( firstname, lastname, email, password, authorisation)
+values ('Brooke', 'Kinajil-Moran', 'brookethecook@hotmail.com', 'temp', 0 );
+insert into member( firstname, lastname,email, password, authorisation)
+values ('Arushi', 'Bhatnager-Stewart', 'arushi@marsden.com', 'temp', 1 );
 
 insert into news(title, subtitle, content, newsdate, member_id)
 values('Prem A!',
@@ -41,7 +42,7 @@ values('Prem A!',
        'please let me know either through email or in this comment section. ' || char(10) ||
        'Thank you!',
        '2023-03-19 17:41:00',
-       (select member_id from member where name='Ri' )
+       (select member_id from member where firstname='Ri' )
        );
 
 insert into news(title, subtitle, content, newsdate, member_id)
@@ -54,5 +55,5 @@ values('Regionals',
        'encourage new schools to consider entering a team this year. It’s a great opportunity for students to develop their debating ' ||
        'skills and compete against other like minded students in the region! ',
        '2023-03-30 16:30:00',
-       (select member_id from member where name='Florence' )
+       (select member_id from member where firstname='Florence' )
        );
