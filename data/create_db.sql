@@ -2,6 +2,7 @@
 
 drop table if exists news;
 drop table if exists member;
+drop table if exists schedule;
 
 /* create tables */
 
@@ -25,13 +26,14 @@ create table news(
 );
 
 create table schedule(
-    post_id
-    event
-    description
-    date
-    location
-    member_id
-)
+    post_id integer primary key autoincrement not null,
+    event text not null,
+    description text not null,
+    scheduledate date not null,
+    location text not null,
+    member_id integer not null,
+    foreign key(member_id) references member (member_id)
+);
 
 insert into member( firstname, lastname, email, password, authorisation)
 values ('Florence', 'Oakley', 'm@g.com', 'temp', 0 );
@@ -65,4 +67,20 @@ values('Regionals',
        'skills and compete against other like minded students in the region! ',
        '2023-03-30 16:30:00',
        (select member_id from member where firstname='Florence' )
+       );
+
+insert into schedule(event, description, scheduledate, location, member_id)
+values('Stockley Cup',
+       'WSUs largest public speaking competition for senior students',
+       '2023-06-22 18:00:00',
+       'Rutherford House, Victoria Universitys Pipitea Campus',
+       (select member_id from member where firstname='Brooke' )
+       );
+
+insert into schedule(event, description, scheduledate, location, member_id)
+values('Dunsheath Shield',
+       'WSUs largest public speaking competition for junior students',
+       '2023-06-20 18:00:00',
+       'Rutherford House, Victoria Universitys Pipitea Campus',
+       (select member_id from member where firstname='Brooke' )
        );

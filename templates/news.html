@@ -19,6 +19,7 @@ News
 
       <div class="inner-container upcoming-container">
 
+          {% for row in news %}
         <div class="card-group">
 
             <div class="col-lg-4 h-100">
@@ -30,6 +31,8 @@ News
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">April 1st and 2nd 2023</small>
+                    <br>
+                  <small class="text-muted">Wellington College</small>
                 </div>
               </div>
             </div>
@@ -37,11 +40,13 @@ News
                   <div class="card news-card">
                     <img class="card-img-top" src="static/images/HenSpeaking2 - Edited.png">
                     <div class="card-body">
-                      <h5 class="card-title">Stockley Cup</h5>
-                      <p class="card-text news-text">WSU's largest public speaking competition for senior students!</p>
+                      <h5 class="card-title">{{ row['event'] }}</h5>
+                      <p class="card-text news-text">{{ row['description'] }}</p>
                     </div>
                     <div class="card-footer">
-                      <small class="text-muted">Date TBC</small>
+                      <small class="text-muted">{{ row['scheduledate'] }}</small>
+                        <br>
+                      <small class="text-muted">{{ row['location'] }}</small>
                     </div>
                   </div>
                 </div>
@@ -58,7 +63,7 @@ News
                   </div>
               </div>
         </div>
-
+          {% endfor %}
       </div>
 
     </div>
@@ -84,7 +89,7 @@ News
             <p class="recent-news-text"> {{ row['content'] | replace("\n", "<br>") | safe}} </p>
             <br>
             <div class="meta">
-            <p class="meta-text">Posted by {{ row['name'] }} on {{ row['newsdate'] | news_date}}  </p>
+            <p class="meta-text">Posted by {{ row['firstname'] }} on {{ row['newsdate'] | news_date}}  </p>
 {% if session and session['authorisation'] == 0 %}
             <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='update') }}">update</a>
             <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">delete</a>
