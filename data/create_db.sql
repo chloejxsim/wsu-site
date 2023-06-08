@@ -24,6 +24,15 @@ create table news(
     foreign key(member_id) references member(member_id)
 );
 
+create table schedule(
+    post_id
+    event
+    description
+    date
+    location
+    member_id
+)
+
 insert into member( firstname, lastname, email, password, authorisation)
 values ('Florence', 'Oakley', 'm@g.com', 'temp', 0 );
 insert into member( firstname, lastname, email, password, authorisation)
