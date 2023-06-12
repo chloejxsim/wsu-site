@@ -19,26 +19,13 @@ News
 
       <div class="inner-container upcoming-container">
 
-          {% for row in news %}
+
         <div class="card-group">
 
-            <div class="col-lg-4 h-100">
-              <div class="card h-100 news-card">
-                <img class="card-img-top" src="static/images/HenSpeaking2 - Edited.png">
-                <div class="card-body">
-                  <h5 class="card-title">Regionals</h5>
-                  <p class="card-text news-text">Join WSU in Wellington's largest debating event for Years 9 to 13! </p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">April 1st and 2nd 2023</small>
-                    <br>
-                  <small class="text-muted">Wellington College</small>
-                </div>
-              </div>
-            </div>
+            {% for row in news %}
               <div class="col-lg-4">
                   <div class="card news-card">
-                    <img class="card-img-top" src="static/images/HenSpeaking2 - Edited.png">
+                    <img class="card-img-top" src="">
                     <div class="card-body">
                       <h5 class="card-title">{{ row['event'] }}</h5>
                       <p class="card-text news-text">{{ row['description'] }}</p>
@@ -50,20 +37,9 @@ News
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4">
-                  <div class="card news-card">
-                    <img class="card-img-top" src="static/images/HenSpeaking2 - Edited.png">
-                    <div class="card-body">
-                      <h5 class="card-title">Dunsheath Shield</h5>
-                      <p class="card-text news-text">WSU's largest public speaking competition for junior students!</p>
-                    </div>
-                    <div class="card-footer">
-                      <small class="text-muted">Date TBC</small>
-                    </div>
-                  </div>
-              </div>
+            {% endfor %}
+
         </div>
-          {% endfor %}
       </div>
 
     </div>

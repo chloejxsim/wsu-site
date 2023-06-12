@@ -30,20 +30,24 @@ def news():
     # query for the page
     sql = """select news.news_id, news.title, news.subtitle, news.content, news.newsdate, member.firstname
         from news
-        join member on news.member_id= member.member_id
+        join member on news.member_id = member.member_id
         order by news.newsdate desc;
     """
-    result1 = run_search_query_tuples(sql, (), db_path, True)
-    print(result1)
+    result = run_search_query_tuples(sql, (), db_path, True)
+    print(result)
+    return render_template("news.html", news=result)
+
+def schedule():
+    # query for the page
     sql = """select schedule.post_id, schedule.event, schedule.description, schedule.scheduledate, schedule.location, member.firstname
         from schedule
-        join member on schedule.member_id= member.member_id
+        join member on schedule.member_id = member.member_id
         order by schedule.scheduledate desc;
     """
-    result2 = run_search_query_tuples(sql, (), db_path, True)
-    print(result2)
-    render_template("news.html", news=result2)
-    return render_template("news.html", news=result1)
+    result = run_search_query_tuples(sql, (), db_path, True)
+    print(result)
+    return render_template("news.html", schedule=result)
+
 
 @app.route ('/news_cud', methods=["GET", "POST"])
 def news_cud():
