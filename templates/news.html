@@ -15,7 +15,11 @@ News
 
   <div class="container yellow-bg">
 
-    <h1 class="page-title news-title-1 news-title-1">upcoming</h1>
+    <h1 class="page-title news-title-1 news-title-1">upcoming </h1>
+
+      <div class="py-2 text-center">
+          <a class="btn btn-primary recent-news-button" href="{{ url_for('schedule_cud', id=0, task='add') }}">add new event</a>
+      </div>
 
       <div class="inner-container upcoming-container">
 
@@ -23,7 +27,7 @@ News
         <div class="card-group">
 
             {% for row in schedule %}
-              <div class="col-lg-4">
+              <div class="col-lg">
                   <div class="card news-card">
                     <img class="card-img-top" src="/static/images/HenSpeaking2%20-%20Edited.png">
                     <div class="card-body">
@@ -36,6 +40,8 @@ News
                         <br>
                     </div>
                   </div>
+                  <a class="btn btn-primary recent-news-button" href="{{ url_for('schedule_cud', id=row['post_id'], task='update') }}">update</a>
+                  <a class="btn btn-primary recent-news-button" href="{{ url_for('schedule_cud', id=row['post_id'], task='delete') }}">delete</a>
                 </div>
             {% endfor %}
 

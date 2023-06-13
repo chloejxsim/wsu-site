@@ -50,11 +50,6 @@ def news():
 
     return render_template("news.html", news=news, schedule=schedule)
 
-
-
-
-
-
 @app.route ('/news_cud', methods=["GET", "POST"])
 def news_cud():
     #collect data from the web address
@@ -111,6 +106,26 @@ def news_cud():
             # let's put in an error catch
             message = "Unrecognised task coming from news form submission"
             return render_template('error.html', message=message)
+
+@app.route ('/schedule_cud', methods=["GET", "POST"])
+def schedule_cud():
+    temp = {"event":"My event",
+            "description":"My description",
+            "scheduledate":"2023-04-07T13:30",
+            "location":"My location"}
+    if request.method == "GET":
+        return render_template("schedule_cud.html", **temp)
+    elif request.method == "POST":
+        f = request.form
+        print(f)
+        sql = """ insert into schedule(event, description, scheduledate, location, member_id)
+         values(?, ?, ?, ?, ?)"""
+        sdate = f["scheduledate"].replace("T", " ")+":00"
+
+
+        values_tuple = (f["event"], f["description"], sdate, f["location"],1)
+        result = run_commit_query(sql, values_tuple, db_path)
+        return "<h1> Posting schedule </h1>"
 
 @app.route ('/login', methods=["GET", "POST"])
 def login():

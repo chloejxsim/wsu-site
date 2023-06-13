@@ -11,16 +11,28 @@ Schedule
     <h2>Please enter/update your schedule item</h2>
     <form action="{{url_for('schedule_cud', id=id, task=task)}}" method="POST">
       <div>
-        <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{title}}" required>
+        <label for="event" class="form-label">Event</label>
+        <input type="text" class="form-control" id="event" name="event" placeholder="" value="{{event}}" required>
       </div>
       <div>
-        <label for="subtitle" class="form-label">Subtitle</label>
-        <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="" value="{{subtitle}}" required>
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="4" required>{{description}}</textarea>
       </div>
       <div>
-        <label for="content" class="form-label">News Content</label>
-        <textarea class="form-control" id="content" name="content" rows="7" required> {{content}} </textarea>
+        <label for="scheduledate" class="form-label">Date and Time</label>
+        <input id="scheduledate"
+               class="form-control"
+               type="datetime-local"
+               name="scheduledate"
+               min="2023-01-01T00:00"
+               max="2024-01-01T00:00"
+               value = "{{scheduledate}}"
+               required />
+      </div>
+      <br>
+      <div>
+        <label for="location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="location" name="location" placeholder="" value="{{location}}" required>
       </div>
       <div class="text-end">
         <button type="reset" class="btn btn-primary recent-news-button">Reset</button>
