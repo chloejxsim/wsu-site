@@ -13,6 +13,10 @@ def news_date(sqlite_dt):
     x = datetime.strptime(sqlite_dt, '%Y-%m-%d %H:%M:%S')
     return x.strftime("%a %d %b %Y %H:%M")
 
+def schedule_date(sqlite_dt):
+    x = datetime.strptime(sqlite_dt, '%Y-%m-%d %H:%M:%S')
+    return x.strftime("%a %d %b %Y %H:%M")
+
 @app.route ('/')
 def index():
     return render_template("index.html")
@@ -33,20 +37,21 @@ def news():
         join member on news.member_id = member.member_id
         order by news.newsdate desc;
     """
-    result = run_search_query_tuples(sql, (), db_path, True)
-    print(result)
-    return render_template("news.html", news=result)
+    news = run_search_query_tuples(sql, (), db_path, True)
 
-def schedule():
     # query for the page
     sql = """select schedule.post_id, schedule.event, schedule.description, schedule.scheduledate, schedule.location, member.firstname
         from schedule
         join member on schedule.member_id = member.member_id
         order by schedule.scheduledate desc;
     """
-    result = run_search_query_tuples(sql, (), db_path, True)
-    print(result)
-    return render_template("news.html", schedule=result)
+    schedule = run_search_query_tuples(sql, (), db_path, True)
+
+    return render_template("news.html", news=news, schedule=schedule)
+
+
+
+
 
 
 @app.route ('/news_cud', methods=["GET", "POST"])
