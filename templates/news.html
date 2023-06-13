@@ -31,9 +31,9 @@ News
                       <p class="card-text news-text">{{ row['description'] }}</p>
                     </div>
                     <div class="card-footer">
-                      <small class="text-muted">{{ row['scheduledate'] }}</small>
-                        <br>
                       <small class="text-muted">{{ row['location'] }}</small>
+                      <small class="text-muted">on {{ row['scheduledate'] | schedule_date}}</small>
+                        <br>
                     </div>
                   </div>
                 </div>

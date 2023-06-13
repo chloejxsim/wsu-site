@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Schedule
+{% endblock %}
+
+{% block content %}
+<div class="recent-news-containers white-bg">
+
+  <div class="news p-4 my-4">
+    <h2>Please enter/update your schedule item</h2>
+    <form action="{{url_for('schedule_cud', id=id, task=task)}}" method="POST">
+      <div>
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{title}}" required>
+      </div>
+      <div>
+        <label for="subtitle" class="form-label">Subtitle</label>
+        <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="" value="{{subtitle}}" required>
+      </div>
+      <div>
+        <label for="content" class="form-label">News Content</label>
+        <textarea class="form-control" id="content" name="content" rows="7" required> {{content}} </textarea>
+      </div>
+      <div class="text-end">
+        <button type="reset" class="btn btn-primary recent-news-button">Reset</button>
+        <button type="submit" class="btn btn-primary recent-news-button">Submit</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

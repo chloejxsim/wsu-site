@@ -73,7 +73,7 @@ insert into schedule(event, description, scheduledate, location, member_id)
 values('Stockley Cup',
        'WSUs largest public speaking competition for senior students',
        '2023-06-22 18:00:00',
-       'Rutherford House, Victoria Universitys Pipitea Campus',
+       'Rutherford House',
        (select member_id from member where firstname='Brooke' )
        );
 
@@ -81,6 +81,6 @@ insert into schedule(event, description, scheduledate, location, member_id)
 values('Dunsheath Shield',
        'WSUs largest public speaking competition for junior students',
        '2023-06-20 18:00:00',
-       'Rutherford House, Victoria Universitys Pipitea Campus',
+       'Rutherford House',
        (select member_id from member where firstname='Brooke' )
        );

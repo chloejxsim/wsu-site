@@ -13,6 +13,7 @@ def news_date(sqlite_dt):
     x = datetime.strptime(sqlite_dt, '%Y-%m-%d %H:%M:%S')
     return x.strftime("%a %d %b %Y %H:%M")
 
+@app.template_filter()
 def schedule_date(sqlite_dt):
     x = datetime.strptime(sqlite_dt, '%Y-%m-%d %H:%M:%S')
     return x.strftime("%a %d %b %Y %H:%M")
