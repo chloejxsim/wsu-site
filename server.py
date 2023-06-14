@@ -109,23 +109,54 @@ def news_cud():
 
 @app.route ('/schedule_cud', methods=["GET", "POST"])
 def schedule_cud():
-    temp = {"event":"My event",
-            "description":"My description",
-            "scheduledate":"2023-04-07T13:30",
-            "location":"My location"}
+    data = request.args
+    required_keys = ['id','task']
+    for k in required_keys:
+        if k not in data.keys():
+            message = "Do not know what to do with read update on schedule (key not present)"
+            return render_template('error.html', message=message)
     if request.method == "GET":
-        return render_template("schedule_cud.html", **temp)
+        if data['task'] == 'delete':
+            sql = "delete from schedule where post_id = ?"
+            values_tuple = (data['id'],)
+            result = run_commit_query(sql, values_tuple, db_path)
+            return redirect(url_for('news'))
+        elif data['task'] == 'update':
+            sql = """ select event, description, scheduledate, location from schedule where post_id=?"""
+            values_tuple = (data['id'])
+            result = run_search_query_tuples(sql, values_tuple, db_path, True)
+            result = result[0]
+            return render_template("schedule_cud.html",
+                                   **result,
+                                   id=data['id'],
+                                   task=data['task'])
+        elif data['task'] == 'add':
+            return render_template("schedule_cud.html",
+                                   id=0,
+                                   task=data['task'])
+        else:
+            message = "Unrecognised task coming from news page"
+            return render_template('error.html', message=message)
     elif request.method == "POST":
         f = request.form
         print(f)
-        sql = """ insert into schedule(event, description, scheduledate, location, member_id)
-         values(?, ?, ?, ?, ?)"""
-        sdate = f["scheduledate"].replace("T", " ")+":00"
-
-
-        values_tuple = (f["event"], f["description"], sdate, f["location"],1)
-        result = run_commit_query(sql, values_tuple, db_path)
-        return "<h1> Posting schedule </h1>"
+        if data['task'] == 'add':
+            sql = """ insert into schedule(event, description, scheduledate, location, member_id)
+             values(?, ?, ?, ?, ?)"""
+            sdate = f["scheduledate"].replace("T", " ")+":00"
+            values_tuple = (f["event"], f["description"], sdate, f["location"],1)
+            result = run_commit_query(sql, values_tuple, db_path)
+            return redirect(url_for('news'))
+        elif data['task'] == 'update':
+            sql = """update schedule set event=?, description=?, location=?, scheduledate=datetime('now') where post_id=?"""
+            values_tuple = (f["event"], f["description"], f["scheduledate"], f["location"], data['id'])
+            result = run_commit_query(sql, values_tuple, db_path)
+            # collect the data from the form and update the database at the sent id
+            return redirect(url_for('news'))
+        else:
+            # let's put in an error catch
+            message = "Unrecognised task coming from news form submission"
+            return render_template('error.html', message=message)
 
 @app.route ('/login', methods=["GET", "POST"])
 def login():
