@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Premier Advanced
+{% endblock %}
+
+{% block content %}
+
+<section class="parallax-container parallax1">
+    <h1>premier advanced</h1>
+</section>
+
+<div class="container-m container-fluid" id="debating">
+
+
+
+<div class="accordion accordion-flush" id="accordionFlushExample1">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        teachers
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+Content
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        coaches
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+Content
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingFour">
+      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+        judges
+      </button>
+    </h2>
+    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+    Content
+      </div>
+    </div>
+  </div>
+
+</div>
+
+    <h1 class="page-title yellow-bg competition-title-1">draw</h1>
+
+<div class="accordion accordion-flush" id="accordionFlushRounds">
+
+
+
+    {% set ns=namespace(round='') %}
+       {% for row in draw %}
+        {% if ns.round != row['round'] %}
+            {% if loop.index0 != 0 %}
+     </table>
+</div>
+    </div>
+</div>
+</div>
+                {% endif %}
+    <div class="accordion-item">
+<h2 class="accordion-header" id="{{loop.index0}}">
+<button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-{{loop.index0}}"
+       aria-expanded="false" aria-controls="flush-collapseOne">
+{{row['round']}}
+</button>
+</h2>
+<div id="flush-{{loop.index0}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushRounds">
+        <div class="accordion-body">
+        <table class="table w-75 mx-auto">
+        <tr><th> Round </th><th> Aff </th><th>Neg </th><th> Winner</th></tr>
+        {% set ns.round = row['round'] %}
+        {% endif %}
+    <tr> <td>{{row['round']}}</td><td>{{row['affirming']}}</td><td>{{row['negating']}}</td><td>{{row['winner']}}</td></tr>
+    {% endfor %}
+                 </table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+</div>
+
+{% endblock %}

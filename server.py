@@ -26,6 +26,12 @@ def index():
 def competitions():
     return render_template("competitions.html")
 
+@app.route ('/premieradvanced')
+def premieradvanced():
+    sql = """select draw_id, round, affirming, negating, winner from draw"""
+    result = run_search_query_tuples(sql,(),db_path,True)
+    return render_template("premieradvanced.html", draw=result)
+
 @app.route ('/resources')
 def resources():
     return render_template("resources.html")

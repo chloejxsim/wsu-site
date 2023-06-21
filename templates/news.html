@@ -15,14 +15,15 @@ News
 
   <div class="container yellow-bg">
 
-    <h1 class="page-title news-title-1 news-title-1">upcoming </h1>
+    <h1 class="page-title news-title-1">upcoming </h1>
 
+      {% if session and session['authorisation'] == 0 %}
       <div class="py-2 text-center">
           <a class="btn btn-primary recent-news-button" href="{{ url_for('schedule_cud', id=0, task='add') }}">add new event</a>
       </div>
+      {% endif %}
 
       <div class="inner-container upcoming-container">
-
 
         <div class="card-group">
 
@@ -39,10 +40,13 @@ News
                       <small class="text-muted">on {{ row['scheduledate'] | schedule_date}}</small>
                         <br>
                     </div>
+                        <br>
+{% if session and session['authorisation'] == 0 %}
+                  <a class="btn btn-primary schedule-button" href="{{ url_for('schedule_cud', id=row['post_id'], task='update') }}">update</a>
+                  <a class="btn btn-primary schedule-button" href="{{ url_for('schedule_cud', id=row['post_id'], task='delete') }}">delete</a>
+{% endif %}
                   </div>
-                  <a class="btn btn-primary recent-news-button" href="{{ url_for('schedule_cud', id=row['post_id'], task='update') }}">update</a>
-                  <a class="btn btn-primary recent-news-button" href="{{ url_for('schedule_cud', id=row['post_id'], task='delete') }}">delete</a>
-                </div>
+             </div>
             {% endfor %}
 
         </div>

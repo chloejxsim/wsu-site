@@ -3,8 +3,6 @@
 drop table if exists news;
 drop table if exists member;
 drop table if exists schedule;
-drop table if exists grade;
-drop table if exists round;
 drop table if exists draw;
 
 /* create tables */
@@ -38,25 +36,12 @@ create table schedule(
     foreign key(member_id) references member (member_id)
 );
 
-create table grade(
-    grade_id integer primary key autoincrement not null,
-    name text not null
-);
-
-create table round(
-    round_id integer primary key autoincrement not null,
-    moot text not null,
-    grade_id integer not null,
-    foreign key(grade_id) references grade (grade_id)
-);
-
 create table draw(
     draw_id integer primary key autoincrement not null,
+    round integer not null,
     affirming text not null,
     negating text not null,
-    winner text not null,
-    round_id integer not null,
-    foreign key(round_id) references round (round_id)
+    winner text
 );
 
 insert into member( firstname, lastname, email, password, authorisation)
@@ -109,30 +94,4 @@ values('Dunsheath Shield',
        (select member_id from member where firstname='Brooke' )
        );
 
-insert into grade(name)
-values('Premier Advanced');
 
-insert into grade(name)
-values('Premier B');
-
-insert into round(moot, grade_id)
-values('THW ban zoos',
-       (select grade_id from grade where name='Premier Advanced')
-       );
-
-insert into round(moot, grade_id)
-values('THW ban fireworks',
-       (select grade_id from grade where name='Premier B')
-       );
-
-insert into draw(round_id, affirming, negating, winner)
-values((select round_id from round where moot='THW ban zoos'),
-       'Marsden',
-       'Onslow',
-       'Marsden');
-
-insert into draw(round_id, affirming, negating, winner)
-values((select round_id from round where moot='THW ban fireworks'),
-       'QMC',
-       'Marsden',
-       'QMC');

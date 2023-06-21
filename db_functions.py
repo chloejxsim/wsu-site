@@ -124,5 +124,18 @@ def execute_external_script(sql_script_path, db_path):
 if __name__ == "__main__":
     sql_path = 'data/create_db.sql'
     db_path = 'data/wsusite_db.sqlite'
+    csv_path = 'data/premadraws.csv'
     execute_external_script(sql_path, db_path)
+    csv_data= file_reader(csv_path)
+    csv_data.pop(0)
+    for row in csv_data:
+        sql = """insert into draw(round, affirming, negating, winner)
+        values(?,?,?,?)"""
+        values_tuple=(row[0], row[1], row[2], row[3])
+        result =  run_commit_query(sql, values_tuple, db_path)
+        if result is False:
+            print(row)
+
+
+
 
