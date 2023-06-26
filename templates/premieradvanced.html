@@ -10,95 +10,79 @@ Premier Advanced
     <h1>premier advanced</h1>
 </section>
 
-<div class="container-m container-fluid" id="debating">
+<h1 class="aboutus-heading"> draw </h1>
 
+<br>
 
+<div class="accordion accordion-flush" id="AccordionFlushPremA">
 
-<div class="accordion accordion-flush" id="accordionFlushExample1">
   <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        teachers
+    <h2 class="accordion-header" id="flush-headingRoundOne">
+      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseRoundOne"
+               aria-expanded="false" aria-controls="flush-collapseRoundOne">
+        Round One
       </button>
     </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+    <div id="flush-collapseRoundOne" class="accordion-collapse collapse" aria-labelledby="flush-headingRoundOne" >
       <div class="accordion-body">
-Content
+        <div class="container-m container-fluid mx-auto w-75">
+          <div class="row align-items-center">
+            <table class="table w-75 mx-auto">
+              <tr><th> Round </th><th> Aff </th><th>Neg </th><th> Winner</th></tr>
+              <tr><td> fdjlsak </td><td> fdjal </td><td> fdjakl </td><td> fdajkl </td></tr>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingThree">
-      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        coaches
+    <h2 class="accordion-header" id="flush-headingRoundTwo">
+      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseRoundTwo"
+               aria-expanded="false" aria-controls="flush-collapseRoundTwo">
+        Round Two
       </button>
     </h2>
-    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+    <div id="flush-collapseRoundTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingRoundTwo" >
       <div class="accordion-body">
-Content
+        <div class="container-m container-fluid mx-auto w-75">
+          <div class="row align-items-center">
+                    <table class="table w-75 mx-auto">
+
+
+              <tr><th> Round </th><th> Aff </th><th>Neg </th><th> Winner</th></tr>
+              <tr><td> fdjlsak </td><td> fdjal </td><td> fdjakl </td><td> fdajkl </td></tr>
+
+
+            </table>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </div>
 
   <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingFour">
-      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-        judges
+    <h2 class="accordion-header" id="flush-headingRoundThree">
+      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseRoundThree"
+               aria-expanded="false" aria-controls="flush-collapseRoundThree">
+        Round Three
       </button>
     </h2>
-    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+    <div id="flush-collapseRoundThree" class="accordion-collapse collapse" aria-labelledby="flush-headingRoundThree" >
       <div class="accordion-body">
-    Content
+        <div class="container-m container-fluid mx-auto w-75">
+          <div class="row align-items-center">
+            put stuff here
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </div>
 
-</div>
-
-    <h1 class="page-title yellow-bg competition-title-1">draw</h1>
-
-<div class="accordion accordion-flush" id="accordionFlushRounds">
-
-
-
-    {% set ns=namespace(round='') %}
-       {% for row in draw %}
-        {% if ns.round != row['round'] %}
-            {% if loop.index0 != 0 %}
-     </table>
-</div>
-    </div>
-</div>
-</div>
-                {% endif %}
-    <div class="accordion-item">
-<h2 class="accordion-header" id="{{loop.index0}}">
-<button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-{{loop.index0}}"
-       aria-expanded="false" aria-controls="flush-collapseOne">
-{{row['round']}}
-</button>
-</h2>
-<div id="flush-{{loop.index0}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushRounds">
-        <div class="accordion-body">
-        <table class="table w-75 mx-auto">
-        <tr><th> Round </th><th> Aff </th><th>Neg </th><th> Winner</th></tr>
-        {% set ns.round = row['round'] %}
-        {% endif %}
-    <tr> <td>{{row['round']}}</td><td>{{row['affirming']}}</td><td>{{row['negating']}}</td><td>{{row['winner']}}</td></tr>
-    {% endfor %}
-                 </table>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-
-
 
 
 </div>
+
 
 {% endblock %}
