@@ -14,75 +14,62 @@ Premier Advanced
 
 <br>
 
-<div class="accordion accordion-flush" id="AccordionFlushPremA">
+<div class="container-lg">
 
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingRoundOne">
-      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseRoundOne"
-               aria-expanded="false" aria-controls="flush-collapseRoundOne">
-        Round One
-      </button>
-    </h2>
-    <div id="flush-collapseRoundOne" class="accordion-collapse collapse" aria-labelledby="flush-headingRoundOne" >
-      <div class="accordion-body">
-        <div class="container-m container-fluid mx-auto w-75">
-          <div class="row align-items-center">
-            <table class="table w-75 mx-auto">
-              <tr><th> Round </th><th> Aff </th><th>Neg </th><th> Winner</th></tr>
-              <tr><td> fdjlsak </td><td> fdjal </td><td> fdjakl </td><td> fdajkl </td></tr>
-            </table>
-          </div>
+  <!-- begin accordion using row loop -->
+<div class="accordion" id="AccordionFlushPremA">
+  <!-- declare a variable to hold the value that is the accordion item title -->
+{% set ns=namespace(round="") %}
+  {% for row in draw %}
+
+    {% if row['round'] != ns.round %}
+      <!-- if the title variable is new this means that there is a new accordion item occurring -->
+      <!-- set it to the current title -->
+      {% set ns.round=row['round'] %}
+        {% if loop.index0 != 0 %}
+      <!-- if this is not the first iteration of the loop then I need to close the previous table -->
+        </table>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingRoundTwo">
-      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseRoundTwo"
-               aria-expanded="false" aria-controls="flush-collapseRoundTwo">
-        Round Two
-      </button>
-    </h2>
-    <div id="flush-collapseRoundTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingRoundTwo" >
-      <div class="accordion-body">
-        <div class="container-m container-fluid mx-auto w-75">
-          <div class="row align-items-center">
-                    <table class="table w-75 mx-auto">
-
-
-              <tr><th> Round </th><th> Aff </th><th>Neg </th><th> Winner</th></tr>
-              <tr><td> fdjlsak </td><td> fdjal </td><td> fdjakl </td><td> fdajkl </td></tr>
-
-
-            </table>
-            </div>
-          </div>
         </div>
-      </div>
-  </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingRoundThree">
-      <button class="accordion-button collapsed d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseRoundThree"
-               aria-expanded="false" aria-controls="flush-collapseRoundThree">
-        Round Three
-      </button>
-    </h2>
-    <div id="flush-collapseRoundThree" class="accordion-collapse collapse" aria-labelledby="flush-headingRoundThree" >
-      <div class="accordion-body">
-        <div class="container-m container-fluid mx-auto w-75">
-          <div class="row align-items-center">
-            put stuff here
-            </div>
-          </div>
         </div>
-      </div>
-  </div>
+        {% endif %}
+        <!-- create all the header material for each new accordion item -->
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="panel-{{loop.index0}}">
+        <button class="accordion-button collapsed ps-5" type="button" data-bs-toggle="collapse" data-bs-target="#Open-{{ loop.index0 }}">
+        <h2 class="text-center w-100"> {{ns.round}} </h2>
+        </button>
+        </h2>
+        <div id="Open-{{ loop.index0}}" class="accordion-collapse collapse">
+        <div class="accordion-body">
+        <table class=" table mx-auto text-center">
+        <thead>
+        <tr><th>Affirming</th><th>Negating</th><th>Winner</th></tr>
+        </thead>
+{% endif %}
+        <!-- write table data -->
+        <tr><td> {{row['affirming']}}</td><td> {{row['negating']}}</td><td> {{row['winner']}}</td></tr>
 
+          <!-- buttons for admin -->
+          <td> <a class="btn btn-primary recent-news-button" href="{{ url_for('premieradvanced' , id=row['round_id'] ) }}" role="button">Edit</a>
+            </td><td>
+                <form action="{{ url_for('premieradvanced', id=row['round_id'], task='delete' ) }}" method="POST">
+                 <button type="submit" class="btn btn-primary recent-news-button">Delete</button>
+                </form>
+            </td>
+            </tr>
 
+    {% endfor %}
+        <!-- loop is all done close off last accordion item -->
+        </table>
+        </div>
+        </div>
+        </div>
 
+<!-- end of accordion -->
 </div>
 
+  <!-- end of container -->
+</div>
 
 {% endblock %}
