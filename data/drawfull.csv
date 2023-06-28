@@ -1,0 +1,81 @@
+Prem A,Round 1,Affirming,Negating,Winner
+Prem A,Round 1,HIBS,High,High
+Prem A,Round 1,Kāpiti,WGC,WGC
+Prem A,Round 1,Newlands,WC,WC
+Prem A,Round 1,Onslow,Silverstream,Onslow
+Prem A,Round 1,Paraparaumu ,St Orans,Paraparaumu
+Prem A,Round 1,QMC,St Marys,St Marys
+Prem A,Round 1,Sacred Heart,Scots,Scots
+Prem A,Round 1,Marsden,WEGC,Marsden
+Prem A,Round 2,St Marys,WC,WC
+Prem A,Round 2,Scots,High,Scots
+Prem A,Round 2,WGC,HIBS,HIBS
+Prem A,Round 2,Marsden,Onslow,Marsden
+Prem A,Round 2,Paraparaumu,Newlands,Newlands
+Prem A,Round 2,QMC,Kāpiti,Kāpiti
+Prem A,Round 2,WEGC,Sacred Heart,WEGC
+Prem A,Round 2,Silverstream,St Orans,Silverstream
+Prem A,Round 3,WC,Scots,WC
+Prem A,Round 3,HIBS,Marsden,HIBS
+Prem A,Round 3,Newlands,St Marys,St Marys
+Prem A,Round 3,High,WGC,High
+Prem A,Round 3,Onslow,Paraparaumu,Onslow
+Prem A,Round 3,Kāpiti,WEGC,WEGC
+Prem A,Round 3,Silverstream,QMC,QMC
+Prem A,Round 3,Sacred Heart,St Orans,St Orans
+Prem A,Round 4,WC,HIBS,WC
+Prem A,Round 4,St Marys,Scots,St Marys
+Prem A,Round 4,High,Onslow,Onslow
+Prem A,Round 4,WEGC,Marsden,Marsden
+Prem A,Round 4,QMC,Newlands,Newlands
+Prem A,Round 4,WGC,Paraparaumu,WGC
+Prem A,Round 4,Silverstream,Kāpiti,Kāpiti
+Prem A,Round 4,St Orans,Sacred Heart,St Orans
+Prem A,Round 5,St Marys,WC,St Marys
+Prem A,Round 5,Onslow,HIBS,HIBS
+Prem A,Round 5,Marsden,Newlands,Marsden
+Prem A,Round 5,Scots,High,Scots
+Prem A,Round 5,WEGC,WGC,WGC
+Prem A,Round 5,QMC,Kāpiti,Kāpiti
+Prem A,Round 5,Paraparaumu,St Orans,St Orans
+Prem A,Round 5,Sacred Heart,Silverstream,Silverstream
+Junior Prem,Round 1,High,St Catherines,High
+Junior Prem,Round 1,Paraparaumu,Scots,Scots
+Junior Prem,Round 1,Marsden,QMC,Marsden
+Junior Prem,Round 1,Sacred Heart,HIBS,Sacred Heart
+Junior Prem,Round 1,St Marys,HVHS,HVHS
+Junior Prem,Round 1,WC,WEGC,WEGC
+Junior Prem,Round 1,Silverstream,Newlands,Silverstream
+Junior Prem,Round 1,BYE,St Bernards,St Bernards
+Junior Prem,Round 2,Scots,HVHS,Scots
+Junior Prem,Round 2,St Marys,Marsden,St Marys
+Junior Prem,Round 2,High,Silverstream,Silverstream
+Junior Prem,Round 2,Sacred Heart,Newlands,Sacred Heart
+Junior Prem,Round 2,Paraparaumu,WC,Paraparaumu
+Junior Prem,Round 2,QMC,WEGC,WEGC
+Junior Prem,Round 2,St Catherines,HIBS,St Catherines
+Junior Prem,Round 2,Kāpiti,WGC,Kāpiti
+Junior Prem,Round 3,Scots,St Marys,St Marys
+Junior Prem,Round 3,Silverstream,Sacred Heart,Silverstream
+Junior Prem,Round 3,Marsden,Paraparaumu,Paraparaumu
+Junior Prem,Round 3,Kāpiti,High,Kāpiti
+Junior Prem,Round 3,HVHS,Newlands,Newlands
+Junior Prem,Round 3,WEGC,St Catherines,St Catherines
+Junior Prem,Round 3,WC,QMC,WC
+Junior Prem,Round 3,WGC,HIBS,WGC
+Junior Prem,Round 4,Silverstream,St Marys,Silverstream
+Junior Prem,Round 4,Newlands,Scots,Scots
+Junior Prem,Round 4,St Catherines,Sacred Heart,St Catherines
+Junior Prem,Round 4,Paraparaumu,Kāpiti,Kāpiti
+Junior Prem,Round 4,Marsden,High,Marsden
+Junior Prem,Round 4,HVHS,WEGC,WEGC
+Junior Prem,Round 4,WGC,WC,WC
+Junior Prem,Round 4,QMC,HIBS,HIBS
+Junior Prem,Round 5,Silverstream,Scots,Scots
+Junior Prem,Round 5,St Marys,Kāpiti,St Marys
+Junior Prem,Round 5,St Catherines,Newlands,Newlands
+Junior Prem,Round 5,Marsden,Sacred Heart,Marsdem
+Junior Prem,Round 5,WEGC,Paraparaumu,WEGC
+Junior Prem,Round 5,WC,High,High
+Junior Prem,Round 5,HVHS,HIBS,HVHS
+Junior Prem,Round 5,QMC,WGC,WGC

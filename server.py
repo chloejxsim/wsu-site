@@ -28,9 +28,15 @@ def competitions():
 
 @app.route ('/premieradvanced')
 def premieradvanced():
-    sql = """select draw_id, round, affirming, negating, winner from draw"""
+    sql = """select draw_id, grade, round, affirming, negating, winner from draw where grade='Prem A'"""
     result = run_search_query_tuples(sql,(),db_path,True)
     return render_template("premieradvanced.html", draw=result)
+
+@app.route ('/juniorprem')
+def juniorprem():
+    sql = """select draw_id, grade, round, affirming, negating, winner from draw where grade='Junior Prem'"""
+    result = run_search_query_tuples(sql,(),db_path,True)
+    return render_template("juniorprem.html", draw=result)
 
 @app.route ('/resources')
 def resources():

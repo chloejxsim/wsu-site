@@ -38,6 +38,7 @@ create table schedule(
 
 create table draw(
     draw_id integer primary key autoincrement not null,
+    grade text not null,
     round integer not null,
     affirming text not null,
     negating text not null,
