@@ -44,15 +44,42 @@ def resources():
 
 @app.route ('/news')
 def news():
-    # query for the page
+    """Get all news items and comments
+    :return: template
+    """
+
+    # list to hold dictionary of news items and the comments
+    news_set = []
+    # query for the recent news portion of the page
     sql = """select news.news_id, news.title, news.subtitle, news.content, news.newsdate, member.firstname
         from news
         join member on news.member_id = member.member_id
         order by news.newsdate desc;
     """
-    news = run_search_query_tuples(sql, (), db_path, True)
+    news_set = run_search_query_tuples(sql, (), db_path, True)
+    # for each news item
+    for row in news_set:
+        # start a dictionary to for the item
+        news_dict = {}
+        # loop and add keys and values
+        for k in row.keys():
+            news_dict[k] = row[k]
+        # the particular news item
+        # query all its comments in ascending order
+        sql = """select comment.comment_id, comment.comment, comment.commentdate, member.firstname
+           from comment
+           join member on comment.member_id = member.member_id
+           where comment.news_id = ?
+           order by comment.commentdate asc
+           """
+        values_tuple = (news_dict['news_id'],)
+        result = run_search_query_tuples(sql, values_tuple, db_path, True)
+        # add the list of the results to a new comments key
+        news_dict['comments'] = result
+        # add to news_set list
+        news_set.append(news_dict)
 
-    # query for the page
+    # query for the schedule portion of the page
     sql = """select schedule.post_id, schedule.event, schedule.description, schedule.scheduledate, schedule.location, member.firstname
         from schedule
         join member on schedule.member_id = member.member_id
@@ -60,7 +87,7 @@ def news():
     """
     schedule = run_search_query_tuples(sql, (), db_path, True)
 
-    return render_template("news.html", news=news, schedule=schedule)
+    return render_template("news.html", news=news_set, schedule=schedule)
 
 @app.route ('/news_cud', methods=["GET", "POST"])
 def news_cud():
@@ -169,6 +196,35 @@ def schedule_cud():
             # let's put in an error catch
             message = "Unrecognised task coming from news form submission"
             return render_template('error.html', message=message)
+
+@app.route ('/comment_cud', methods=["GET", "POST"])
+def comment_cud():
+    #collect data from the web address
+    data = request.args
+    if request.method == "GET":
+        required_keys = ['id', 'task']
+    elif request.method == "POST":
+        required_keys = ['news_id','member_id','task']
+
+    for k in required_keys:
+        if k not in data.keys():
+            message = "Do not know what to do with read update on news (key not present)"
+            return render_template('error.html', message=message)
+    if request.method == "GET":
+        if data['task'] == 'delete':
+            sql = "delete from comment where comment_id = ?"
+            values_tuple = (data['id'],)
+            result = run_commit_query(sql, values_tuple, db_path)
+            return redirect(url_for('news'))
+    elif request.method == "POST":
+        f = request.form
+        if data['task'] == 'add':
+            sql = """insert into comment(news_id, member_id, comment, commentdate)
+                values(?, ?, ?, datetime('now', 'localtime'))
+                """
+            values_tuple = (data['news_id'], data['member_id'], f['comment'])
+            result = run_commit_query(sql, values_tuple, db_path)
+            return redirect(url_for('news') + "#" + data['news_id'])
 
 @app.route ('/login', methods=["GET", "POST"])
 def login():

@@ -4,6 +4,7 @@ drop table if exists news;
 drop table if exists member;
 drop table if exists schedule;
 drop table if exists draw;
+drop table if exists comment;
 
 /* create tables */
 
@@ -45,6 +46,16 @@ create table draw(
     winner text
 );
 
+create table comment(
+    comment_id integer primary key autoincrement not null,
+    news_id integer not null,
+    member_id integer not null,
+    comment text not null,
+    commentdate date not null,
+    foreign key(news_id) references news(news_id),
+    foreign key(member_id) references member(member_id)
+);
+
 insert into member( firstname, lastname, email, password, authorisation)
 values ('Florence', 'Oakley', 'm@g.com', 'temp', 0 );
 insert into member( firstname, lastname, email, password, authorisation)
@@ -54,6 +65,7 @@ values ('Brooke', 'Kinajil-Moran', 'brookethecook@hotmail.com', 'temp', 0 );
 insert into member( firstname, lastname,email, password, authorisation)
 values ('Arushi', 'Bhatnager-Stewart', 'arushi@marsden.com', 'temp', 1 );
 
+/* news items */
 insert into news(title, subtitle, content, newsdate, member_id)
 values('Prem A!',
        'Prem A Round Two',
@@ -79,6 +91,8 @@ values('Regionals',
        (select member_id from member where firstname='Florence' )
        );
 
+/* schedule items */
+
 insert into schedule(event, description, scheduledate, location, member_id)
 values('Stockley Cup',
        'WSUs largest public speaking competition for senior students',
@@ -95,4 +109,27 @@ values('Dunsheath Shield',
        (select member_id from member where firstname='Brooke' )
        );
 
+/* comment items */
 
+insert into comment(news_id, member_id, comment, commentdate)
+values( (select news_id from news where title='Regionals'),
+       (select member_id from member where firstname='Arushi'),
+       'How many teams are able to enter per school, and is there a cost?',
+       '2023-04-02 12:13:00'
+       );
+
+insert into comment(news_id, member_id, comment, commentdate)
+values( (select news_id from news where title='Regionals'),
+       (select member_id from member where firstname='Florence'),
+       'Hi Arushi,'||
+       ' There is no limit to the number of teams able to enter per school, however'||
+       ' there is an entry cost of $60 per team',
+       '2023-04-03 18:01:00'
+       );
+
+insert into comment(news_id, member_id, comment, commentdate)
+values( (select news_id from news where title='Prem A!'),
+       (select member_id from member where firstname='Arushi'),
+       'Hi Ri, I think that Marsden might be able to host.',
+       '2023-03-20 15:25:00'
+       );

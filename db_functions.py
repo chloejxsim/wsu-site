@@ -1,7 +1,6 @@
 import sqlite3
 import csv
 
-
 def run_commit_query(sql_query, values_tuple, file_path):
     """Run a query that makes a change to the database
     :param (str) sql_query: str

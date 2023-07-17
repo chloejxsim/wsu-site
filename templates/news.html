@@ -58,11 +58,11 @@ News
 
       <h1 class="page-title competition-title-2">recent</h1>
 
-{% if session and session['authorisation'] == 0 %}
+    {% if session and session['authorisation'] == 0 %}
       <div class="py-2 text-center">
           <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=0, task='add') }}">add news</a>
       </div>
-{% endif %}
+    {% endif %}
 
     <div class="inner-container recent-container">
 
@@ -76,19 +76,42 @@ News
             <br>
             <div class="meta">
             <p class="meta-text">Posted by {{ row['firstname'] }} on {{ row['newsdate'] | news_date}}  </p>
-{% if session and session['authorisation'] == 0 %}
+        {% if session and session['authorisation'] == 0 %}
             <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='update') }}">update</a>
             <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">delete</a>
-{% endif %}
+            </div>
+        {% endif %}
+
+            <h3 id="{{ row['news_id'] }}">Comments</h3>
+        {% for comment in row['Comments'] %}
+            <div class="comment">
+            <div>Posted by {{ comment['firstname'] }} on {{ comment['commentdate'] | news_date }} </div>
+            <div>{{ comment['comment'] }}</div>
+            <div>
+                <a class="icon-button delete-button small-icon-button" href="{{ url_for('comment_cud', id=comment['comment_id'], task='delete') }}"></a>
+            </div>
+            </div>
+        {% endfor %}
+        {% endfor %}
+
+            <div>
+            {% if session and session['authorisation'] in [0,1] %}
+            <form action="{{url_for('comment_cud', news_id=row['news_id'], member_id=session['id'],task='add')}}" method="POST">
+                <div>
+                    <label for="comment" class="form-label">Your comment</label>
+                    <textarea class="form-control" id="comment" name="comment" rows="1" required>{{content}}</textarea>
+                </div>
+                <div class="text-end">
+                   <button type="submit" class="btn btn-primary recent-news-button">Submit</button>
+                </div>
+            </form>
+            {% endif %}
             </div>
         </div>
-        {% endfor %}
 
     </div>
 
   </div>
-
-</div>
 
 <br>
 
