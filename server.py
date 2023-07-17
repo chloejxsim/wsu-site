@@ -44,21 +44,16 @@ def resources():
 
 @app.route ('/news')
 def news():
-    """Get all news items and comments
-    :return: template
-    """
 
-    # list to hold dictionary of news items and the comments
-    news_set = []
     # query for the recent news portion of the page
     sql = """select news.news_id, news.title, news.subtitle, news.content, news.newsdate, member.firstname
         from news
         join member on news.member_id = member.member_id
         order by news.newsdate desc;
     """
-    news_set = run_search_query_tuples(sql, (), db_path, True)
+    news = run_search_query_tuples(sql, (), db_path, True)
     # for each news item
-    for row in news_set:
+    for row in news:
         # start a dictionary to for the item
         news_dict = {}
         # loop and add keys and values
@@ -70,14 +65,10 @@ def news():
            from comment
            join member on comment.member_id = member.member_id
            where comment.news_id = ?
-           order by comment.commentdate asc
+           order by comment.commentdate
            """
         values_tuple = (news_dict['news_id'],)
         result = run_search_query_tuples(sql, values_tuple, db_path, True)
-        # add the list of the results to a new comments key
-        news_dict['comments'] = result
-        # add to news_set list
-        news_set.append(news_dict)
 
     # query for the schedule portion of the page
     sql = """select schedule.post_id, schedule.event, schedule.description, schedule.scheduledate, schedule.location, member.firstname
@@ -87,7 +78,7 @@ def news():
     """
     schedule = run_search_query_tuples(sql, (), db_path, True)
 
-    return render_template("news.html", news=news_set, schedule=schedule)
+    return render_template("news.html", news=news, schedule=schedule)
 
 @app.route ('/news_cud', methods=["GET", "POST"])
 def news_cud():

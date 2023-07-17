@@ -96,7 +96,7 @@ News
 
             <div>
             {% if session and session['authorisation'] in [0,1] %}
-            <form action="{{url_for('comment_cud', news_id=row['news_id'], member_id=session['id'],task='add')}}" method="POST">
+            <form action="{{url_for('comment_cud', news_id=row['news_id'], member_id=session['id'], task='add')}}" method="POST">
                 <div>
                     <label for="comment" class="form-label">Your comment</label>
                     <textarea class="form-control" id="comment" name="comment" rows="1" required>{{content}}</textarea>
