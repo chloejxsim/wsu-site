@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Premier Advanced
+Junior Certificate
 {% endblock %}
 
 {% block content %}
 
 <section class="parallax-container parallax1">
-    <h1>junior premier</h1>
+    <h1>junior certificate</h1>
 </section>
 
 <h1 class="aboutus-heading"> draw </h1>
@@ -17,7 +17,7 @@ Premier Advanced
 <div class="container-lg">
 
   <!-- begin accordion using row loop -->
-<div class="accordion" id="AccordionFlushJuniorPrem">
+<div class="accordion" id="AccordionFlushJuniorCert">
   <!-- declare a variable to hold the value that is the accordion item title -->
 {% set ns=namespace(round="") %}
   {% for row in draw %}
@@ -51,9 +51,9 @@ Premier Advanced
         <tr><td>{{row['affirming']}}</td><td> {{row['negating']}}</td><td> {{row['winner']}}</td></tr>
 
           <!-- buttons for admin -->
-          <td> <a class="btn btn-primary recent-news-button" href="{{ url_for('juniorprem' , id=row['round_id'] ) }}" role="button">Edit</a>
+          <td> <a class="btn btn-primary recent-news-button" href="{{ url_for('juniorcert' , id=row['round_id'] ) }}" role="button">Edit</a>
             </td><td>
-                <form action="{{ url_for('juniorprem', id=row['round_id'], task='delete' ) }}" method="POST">
+                <form action="{{ url_for('juniorcert', id=row['round_id'], task='delete' ) }}" method="POST">
                  <button type="submit" class="btn btn-primary recent-news-button">Delete</button>
                 </form>
             </td>

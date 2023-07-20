@@ -32,11 +32,23 @@ def premieradvanced():
     result = run_search_query_tuples(sql,(),db_path,True)
     return render_template("premieradvanced.html", draw=result)
 
+@app.route ('/premierb')
+def premierb():
+    return render_template("premierb.html")
+
+@app.route ('/seniorcert')
+def seniorcert():
+    return render_template("seniorcert.html")
+
 @app.route ('/juniorprem')
 def juniorprem():
     sql = """select draw_id, grade, round, affirming, negating, winner from draw where grade='Junior Prem'"""
     result = run_search_query_tuples(sql,(),db_path,True)
     return render_template("juniorprem.html", draw=result)
+
+@app.route ('/juniorcert')
+def juniorcert():
+    return render_template("juniorcert.html")
 
 @app.route ('/resources')
 def resources():
