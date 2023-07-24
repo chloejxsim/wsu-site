@@ -67,53 +67,24 @@ News
     <div class="inner-container recent-container">
 
         {% for row in news %}
-        <div class="container-m recent-news-containers white-bg">
-            <h1 class="recent-news-heading"> {{ row['title'] }} </h1>
-            <hr>
-            <h3 class="recent-news-subheading"> {{ row['subtitle'] }} </h3>
-            <hr>
-            <p class="recent-news-text"> {{ row['content'] | replace("\n", "<br>") | safe}} </p>
-            <br>
-            <div class="meta">
-            <p class="meta-text">Posted by {{ row['firstname'] }} on {{ row['newsdate'] | news_date}}  </p>
-        {% if session and session['authorisation'] == 0 %}
-            <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='update') }}">update</a>
-            <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">delete</a>
-            </div>
-        {% endif %}
-
-            <h3 id="{{ row['news_id'] }}">Comments</h3>
-        {% for comment in row['Comments'] %}
-            <div class="comment">
-            <div>Posted by {{ comment['firstname'] }} on {{ comment['commentdate'] | news_date }} </div>
-            <div>{{ comment['comment'] }}</div>
-            <div>
-                <a class="icon-button delete-button small-icon-button" href="{{ url_for('comment_cud', id=comment['comment_id'], task='delete') }}"></a>
-            </div>
-            </div>
-        {% endfor %}
-        {% endfor %}
-
-            <div>
-            {% if session and session['authorisation'] in [0,1] %}
-            <form action="{{url_for('comment_cud', news_id=row['news_id'], member_id=session['id'], task='add')}}" method="POST">
-                <div>
-                    <label for="comment" class="form-label">Your comment</label>
-                    <textarea class="form-control" id="comment" name="comment" rows="1" required>{{content}}</textarea>
+            <div class="container-m recent-news-containers white-bg">
+                <h1 class="recent-news-heading"> {{ row['title'] }} </h1>
+                <hr>
+                <h3 class="recent-news-subheading"> {{ row['subtitle'] }} </h3>
+                <hr>
+                <p class="recent-news-text"> {{ row['content'] | replace("\n", "<br>") | safe}} </p>
+                <br>
+                <div class="meta">
+                <p class="meta-text">Posted by {{ row['firstname'] }} on {{ row['newsdate'] | news_date}}  </p>
+                 {% if session and session['authorisation'] == 0 %}
+                <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='update') }}">update</a>
+                <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">delete</a>
                 </div>
-                <div class="text-end">
-                   <button type="submit" class="btn btn-primary recent-news-button">Submit</button>
-                </div>
-            </form>
-            {% endif %}
+                {% endif %}
             </div>
-        </div>
-
     </div>
-
+        {% endfor %}
   </div>
-
-<br>
 
 </div>
 
