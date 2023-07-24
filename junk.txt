@@ -1,0 +1,11 @@
+
+    for row in result:
+        if row['news_id'] != newsID:
+            news_item = "{} {} {}".format(row['news_id'], row['title'], row['subtitle'])
+            print(news_item)
+            comment = "{} {}".format(row['comment'], row['firstname'])
+            print(comment)
+            newsID = row['news_id']
+        else:
+            comment = "{} {}".format(row['comment'], row['firstname'])
+            print(comment)
