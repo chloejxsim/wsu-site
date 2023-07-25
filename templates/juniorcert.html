@@ -51,6 +51,7 @@ Junior Certificate
         <tr><td>{{row['affirming']}}</td><td> {{row['negating']}}</td><td> {{row['winner']}}</td></tr>
 
           <!-- buttons for admin -->
+            {% if session and session['authorisation'] == 0 %}
           <td> <a class="btn btn-primary recent-news-button" href="{{ url_for('juniorcert' , id=row['round_id'] ) }}" role="button">Edit</a>
             </td><td>
                 <form action="{{ url_for('juniorcert', id=row['round_id'], task='delete' ) }}" method="POST">
@@ -58,6 +59,7 @@ Junior Certificate
                 </form>
             </td>
             </tr>
+            {% endif %}
 
     {% endfor %}
         <!-- loop is all done close off last accordion item -->

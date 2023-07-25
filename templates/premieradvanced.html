@@ -51,13 +51,15 @@ Premier Advanced
         <tr><td>{{row['affirming']}}</td><td> {{row['negating']}}</td><td> {{row['winner']}}</td></tr>
 
           <!-- buttons for admin -->
-          <td> <a class="btn btn-primary recent-news-button" href="{{ url_for('premieradvanced' , id=row['round_id'] ) }}" role="button">Edit</a>
-            </td><td>
+            {% if session and session['authorisation'] == 0 %}
+          <td> <a class="btn btn-primary recent-news-button" href="{{ url_for('premieradvanced' , id=row['round_id'] ) }}" role="button">Edit</a></td>
+            <td>
                 <form action="{{ url_for('premieradvanced', id=row['round_id'], task='delete' ) }}" method="POST">
                  <button type="submit" class="btn btn-primary recent-news-button">Delete</button>
                 </form>
             </td>
             </tr>
+            {% endif %}
 
     {% endfor %}
         <!-- loop is all done close off last accordion item -->

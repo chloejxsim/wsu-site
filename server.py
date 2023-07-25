@@ -64,24 +64,6 @@ def news():
         order by news.newsdate desc;
     """
     news = run_search_query_tuples(sql, (), db_path, True)
-    # for each news item
-    for row in news:
-        # start a dictionary to for the item
-        news_dict = {}
-        # loop and add keys and values
-        for k in row.keys():
-            news_dict[k] = row[k]
-        # the particular news item
-        # query all its comments in ascending order
-        sql = """select comment.comment_id, comment.comment, comment.commentdate, member.firstname
-           from comment
-           join member on comment.member_id = member.member_id
-           where comment.news_id = ?
-           order by comment.commentdate
-           """
-        values_tuple = (news_dict['news_id'],)
-        result = run_search_query_tuples(sql, values_tuple, db_path, True)
-
     # query for the schedule portion of the page
     sql = """select schedule.post_id, schedule.event, schedule.description, schedule.scheduledate, schedule.location, member.firstname
         from schedule
