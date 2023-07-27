@@ -20,14 +20,6 @@ def get_comments(db_path):
                 print(com['comment'])
 
 
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
     db_path = 'data/wsusite_db.sqlite'
     get_comments(db_path)

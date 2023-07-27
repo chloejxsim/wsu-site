@@ -40,6 +40,8 @@ News
                       <small class="text-muted">on {{ row['scheduledate'] | schedule_date}}</small>
                         <br>
                     </div>
+                      <br>
+
                         <br>
 {% if session and session['authorisation'] == 0 %}
                   <a class="btn btn-primary schedule-button" href="{{ url_for('schedule_cud', id=row['post_id'], task='update') }}">update</a>
@@ -74,6 +76,15 @@ News
                 <hr>
                 <p class="recent-news-text"> {{ row['content'] | replace("\n", "<br>") | safe}} </p>
                 <br>
+                         <div class="comments">
+                             {% for com in comments %}
+                             {% if com['news_id'] == row['news_id'] %}
+                             <p class="recent-news-text">{{com['comment']}}</p>
+                             {% endif %}
+                             {% endfor %}
+
+
+                        </div>
                 <div class="meta">
                 <p class="meta-text">Posted by {{ row['firstname'] }} on {{ row['newsdate'] | news_date}}  </p>
                  {% if session and session['authorisation'] == 0 %}

@@ -63,7 +63,15 @@ def news():
         join member on news.member_id = member.member_id
         order by news.newsdate desc;
     """
-    news = run_search_query_tuples(sql, (), db_path, True)
+    news_items = run_search_query_tuples(sql, (), db_path, True)
+    sql="""select news.news_id,news.title,news.subtitle, news.content, comment.comment, member.firstname
+     from news
+     left join comment on news.news_id = comment.news_id
+     left join member on comment.member_id = member.member_id
+     order by news.newsdate desc
+     """
+    comments = run_search_query_tuples(sql, (), db_path, True)
+    #news = run_search_query_tuples(sql, (), db_path, True)
     # query for the schedule portion of the page
     sql = """select schedule.post_id, schedule.event, schedule.description, schedule.scheduledate, schedule.location, member.firstname
         from schedule
@@ -72,7 +80,7 @@ def news():
     """
     schedule = run_search_query_tuples(sql, (), db_path, True)
 
-    return render_template("news.html", news=news, schedule=schedule)
+    return render_template("news.html", news=news_items, comments=comments, schedule=schedule)
 
 @app.route ('/news_cud', methods=["GET", "POST"])
 def news_cud():
