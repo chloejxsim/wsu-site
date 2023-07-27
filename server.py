@@ -28,19 +28,58 @@ def competitions():
 
 @app.route ('/draw_cud', methods=["GET", "POST"])
 def draw_cud():
+    data = request.args
+    required_keys = ['id', 'task']
+    for k in required_keys:
+        if k not in data.keys():
+            message = "Do not know what to do with read update on news (key not present)"
+            return render_template('error.html', message=message)
     if request.method == "GET":
-        data = request.args
-        required_keys = ['id', 'task']
-        for k in required_keys:
-            if k not in data.keys():
-                message = "Do not know what to do with read update on news (key not present)"
+        if data['task'] == 'delete':
+            sql = "delete from draw where draw_id = ?"
+            values_tuple = (data['id'],)
+            result = run_commit_query(sql, values_tuple, db_path)
+            return redirect(url_for('competitions'))
+        elif data['task'] == "update":
+            sql = """select grade, round, affirming, negating, winner from draw where draw_id=? """
+            values_tuple = (data['id'])
+            result = run_search_query_tuples(sql, values_tuple, db_path, True)
+            result = result[0]
+            return render_template("draw_cud.html",
+                                   **result,
+                                   id=data['id'],
+                                   task=data['task'])
+        elif data['task'] == 'add':
+            temp = {'grade': 'prem', 'round': '4', 'affirming': 'affirming team', 'negating': 'negating team', 'winner': 'winning team'}
+            return render_template("draw_cud.html",
+                                    id=0,
+                                    task=data['task'],
+                                    **temp)
+        else:
+            message = "Unrecognised task coming from news page"
+            return render_template('error.html', message=message)
+    elif request.method == "POST":
+            # collected form information
+            f = request.form
+            print(f)
+            if data['task'] == 'add':
+                # add new news entry to the database
+                # member is fixed for now
+                sql = """insert into draw(grade, round, affirming, negating, winner)
+                               values(?,?,?,?,?)"""
+                values_tuple = (f['grade'], f['round'], f['affirming'], f['negating'], f['winner'])
+                result = run_commit_query(sql, values_tuple, db_path)
+                return redirect(url_for('competitions'))
+            elif data['task'] == 'update':
+                sql = """update draw set grade=?, round=?, affirming=?, negating=?, winner=?"""
+                values_tuple = (f['grade'], f['round'], f['affirming'], f['negating'], f['winner'])
+                result = run_commit_query(sql, values_tuple, db_path)
+                # collect the data from the form and update the database at the sent id
+                return redirect(url_for('competitions'))
+            else:
+                # let's put in an error catch
+                message = "Unrecognised task coming from news form submission"
                 return render_template('error.html', message=message)
-        if data['task'] == "update":
-            return render_template("draw_cud.html")
-
-
-
-    return render_template("draw_cud.html")
 
 @app.route ('/premieradvanced')
 def premieradvanced():
