@@ -26,6 +26,22 @@ def index():
 def competitions():
     return render_template("competitions.html")
 
+@app.route ('/draw_cud', methods=["GET", "POST"])
+def draw_cud():
+    if request.method == "GET":
+        data = request.args
+        required_keys = ['id', 'task']
+        for k in required_keys:
+            if k not in data.keys():
+                message = "Do not know what to do with read update on news (key not present)"
+                return render_template('error.html', message=message)
+        if data['task'] == "update":
+            return render_template("draw_cud.html")
+
+
+
+    return render_template("draw_cud.html")
+
 @app.route ('/premieradvanced')
 def premieradvanced():
     sql = """select draw_id, grade, round, affirming, negating, winner from draw where grade='Prem A'"""
