@@ -9,3 +9,4 @@ AS91903 - Digital Media Outcome
 
 
 ## Starting tutorial
+## Update for new laptop
