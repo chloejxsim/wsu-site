@@ -101,21 +101,21 @@ Competitions
       <div class="card">
         <img class="circular-image publicspeakingcompetitions" src="/static/images/Competitions_WCPremA.jpg">
         <div class="card-body">
-            <a class="a-resources" href="/premieradvanced">Premier Advanced</a>
+            <a class="a-resources" href="{{url_for('premieradvanced', grade="Prem A")}}">Premier Advanced</a>
         </div>
       </div>
 
       <div class="card">
         <img class="circular-image publicspeakingcompetitions" src="/static/images/Competitions_WGCTeam.jpg">
         <div class="card-body">
-            <a class="a-resources" href="/premierb">Premier B</a>
+            <a class="a-resources" href="{{url_for('premieradvanced', grade="Prem B")}}">Premier B</a>
         </div>
       </div>
 
       <div class="card">
         <img class="circular-image publicspeakingcompetitions" src="/static/images/Competitions_MCSpeaking.jpg">
         <div class="card-body">
-            <a class="a-resources" href="/juniorprem">Junior Premier</a>
+            <a class="a-resources" href="{{url_for('premieradvanced', grade="Junior Prem")}}">Junior Premier</a>
         </div>
       </div>
 
@@ -126,7 +126,7 @@ Competitions
       <div class="card">
         <img class="circular-image publicspeakingcompetitions" src="/static/images/Competitions_ArushiPOI.jpg">
         <div class="card-body">
-            <a class="a-resources" href="/seniorcert">Senior Certificate</a>
+            <a class="a-resources" href="{{url_for('premieradvanced', grade="Senior Cert")}}">Senior Certificate</a>
         </div>
       </div>
 

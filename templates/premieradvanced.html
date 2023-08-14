@@ -52,13 +52,12 @@ Premier Advanced
 
           <!-- buttons for admin -->
             {% if session and session['authorisation'] == 0 %}
-          <td> <a class="btn btn-primary recent-news-button" href="{{ url_for('draw_cud' , id=row['round_id'], task='update' ) }}" role="button">Edit</a></td>
-            <td>
-                <form action="{{ url_for('draw_cud', id=row['round_id'], task='delete' ) }}" method="POST">
-                 <button type="submit" class="btn btn-primary recent-news-button">Delete</button>
-                </form>
-            </td>
-            </tr>
+          <td>
+              <a class="btn btn-primary recent-news-button" href="{{ url_for('draw_cud' , id=row['draw_id'], task='update' ) }}" role="button">Edit</a>
+          </td>
+          <td>
+              <a class="btn btn-primary recent-news-button" href="{{ url_for('draw_cud' , id=row['draw_id'], task='delete' ) }}" role="button">Delete</a>
+          </td>
             {% endif %}
 
     {% endfor %}

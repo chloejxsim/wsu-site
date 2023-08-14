@@ -71,8 +71,8 @@ def draw_cud():
                 result = run_commit_query(sql, values_tuple, db_path)
                 return redirect(url_for('competitions'))
             elif data['task'] == 'update':
-                sql = """update draw set grade=?, round=?, affirming=?, negating=?, winner=?"""
-                values_tuple = (f['grade'], f['round'], f['affirming'], f['negating'], f['winner'])
+                sql = """update draw set grade=?, round=?, affirming=?, negating=?, winner=? where draw_id=?"""
+                values_tuple = (f["affirming"], f["negating"], f["winner"], data['id'])
                 result = run_commit_query(sql, values_tuple, db_path)
                 # collect the data from the form and update the database at the sent id
                 return redirect(url_for('competitions'))
@@ -83,8 +83,20 @@ def draw_cud():
 
 @app.route ('/premieradvanced')
 def premieradvanced():
-    sql = """select draw_id, grade, round, affirming, negating, winner from draw where grade='Prem A'"""
-    result = run_search_query_tuples(sql,(),db_path,True)
+    data = request.args
+    if 'grade' not in data.keys():
+        return render_template("error.html", message="No grade found")
+    print(data)
+    query_grade = data['grade']
+
+    sql = """select draw_id, grade, round, affirming, negating, winner from draw where grade=?"""
+    values_tuple = (query_grade,)
+    result = run_search_query_tuples(sql,values_tuple,db_path,True)
+    print(result)
+    if result is None or len(result) == 0 :
+        message = "No data for draw: {}".format(query_grade)
+        return render_template("error.html", message=message)
+
     return render_template("premieradvanced.html", draw=result)
 
 @app.route ('/premierb')

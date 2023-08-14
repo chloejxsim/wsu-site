@@ -6,5 +6,30 @@ Draw Update
 
 {% block content %}
 
+<div class="recent-news-containers white-bg">
+
+  <div class="news p-4 my-4">
+    <h2>Please enter/update the draw</h2>
+    <form action="{{url_for('draw_cud', id=id, task=task)}}" method="POST">
+      <div>
+        <label for="affirming" class="form-label">Affirming</label>
+        <input type="text" class="form-control" id="affirming" name="affirming" placeholder="" value="{{affirming}}" required>
+      </div>
+      <div>
+        <label for="negating" class="form-label">Negating</label>
+        <input type="text" class="form-control" id="negating" name="negating" placeholder="" value="{{negating}}" required>
+      </div>
+      <div>
+        <label for="winner" class="form-label">Winner</label>
+        <input type="text" class="form-control" id="winner" name="winner" placeholder="" value="{{winner}}" required>
+      </div>
+      <div class="text-end">
+        <button type="reset" class="btn btn-primary recent-news-button">Reset</button>
+        <button type="submit" class="btn btn-primary recent-news-button">Submit</button>
+      </div>
+    </form>
+  </div>
+
+</div>
 
 {% endblock %}
