@@ -71,7 +71,7 @@ def draw_cud():
                 result = run_commit_query(sql, values_tuple, db_path)
                 return redirect(url_for('competitions'))
             elif data['task'] == 'update':
-                sql = """update draw set grade=?, round=?, affirming=?, negating=?, winner=? where draw_id=?"""
+                sql = """update draw set affirming=?, negating=?, winner=? where draw_id=?"""
                 values_tuple = (f["affirming"], f["negating"], f["winner"], data['id'])
                 result = run_commit_query(sql, values_tuple, db_path)
                 # collect the data from the form and update the database at the sent id
@@ -81,8 +81,8 @@ def draw_cud():
                 message = "Unrecognised task coming from news form submission"
                 return render_template('error.html', message=message)
 
-@app.route ('/premieradvanced')
-def premieradvanced():
+@app.route ('/draw')
+def draw():
     data = request.args
     if 'grade' not in data.keys():
         return render_template("error.html", message="No grade found")
@@ -97,25 +97,7 @@ def premieradvanced():
         message = "No data for draw: {}".format(query_grade)
         return render_template("error.html", message=message)
 
-    return render_template("premieradvanced.html", draw=result)
-
-@app.route ('/premierb')
-def premierb():
-    return render_template("premierb.html")
-
-@app.route ('/seniorcert')
-def seniorcert():
-    return render_template("seniorcert.html")
-
-@app.route ('/juniorprem')
-def juniorprem():
-    sql = """select draw_id, grade, round, affirming, negating, winner from draw where grade='Junior Prem'"""
-    result = run_search_query_tuples(sql,(),db_path,True)
-    return render_template("juniorprem.html", draw=result)
-
-@app.route ('/juniorcert')
-def juniorcert():
-    return render_template("juniorcert.html")
+    return render_template("draw.html", draw=result)
 
 @app.route ('/resources')
 def resources():
