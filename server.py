@@ -75,7 +75,7 @@ def draw_cud():
                 values_tuple = (f["affirming"], f["negating"], f["winner"], data['id'])
                 result = run_commit_query(sql, values_tuple, db_path)
                 # collect the data from the form and update the database at the sent id
-                return redirect(url_for('competitions'))
+                return redirect(url_for('draw'))
             else:
                 # let's put in an error catch
                 message = "Unrecognised task coming from news form submission"
@@ -97,7 +97,7 @@ def draw():
         message = "No data for draw: {}".format(query_grade)
         return render_template("error.html", message=message)
 
-    return render_template("draw.html", draw=result)
+    return render_template("draw.html", draw=result, grade=data['grade'])
 
 @app.route ('/resources')
 def resources():
