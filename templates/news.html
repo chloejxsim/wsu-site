@@ -38,11 +38,10 @@ News
                     <div class="card-footer">
                       <small class="text-muted">{{ row['location'] }}</small>
                       <small class="text-muted">on {{ row['scheduledate'] | schedule_date}}</small>
-                        <br>
                     </div>
-                      <br>
 
                         <br>
+
 {% if session and session['authorisation'] == 0 %}
                   <a class="btn btn-primary schedule-button" href="{{ url_for('schedule_cud', id=row['post_id'], task='update') }}">update</a>
                   <a class="btn btn-primary schedule-button" href="{{ url_for('schedule_cud', id=row['post_id'], task='delete') }}">delete</a>
@@ -86,15 +85,23 @@ News
                         </div>
                 <div class="meta">
                 <p class="meta-text">Posted by {{ row['firstname'] }} on {{ row['newsdate'] | news_date}}  </p>
-                 {% if session and session['authorisation'] == 0 %}
+                </div>
+                {% if session and session['authorisation'] == 0 %}
+                    <style>
+                    .recent-container{
+                            min-width: 200px;
+                            max-height:690px;
+                            overflow: scroll;
+                    }
+                    </style>
                 <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='update') }}">update</a>
                 <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">delete</a>
-                </div>
                 {% endif %}
-            </div>
     </div>
         {% endfor %}
   </div>
+
+</div>
 
 </div>
 
