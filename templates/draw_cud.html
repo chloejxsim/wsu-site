@@ -12,6 +12,10 @@ Draw Update
     <h2>Please enter/update the draw</h2>
     <form action="{{url_for('draw_cud', id=id, task=task)}}" method="POST">
       <div>
+        <label for="grade" class="form-label">Grade</label>
+        <input type="text" class="form-control" id="grade" name="grade" placeholder="" value="{{grade}}" required>
+      </div>
+      <div>
         <label for="affirming" class="form-label">Affirming</label>
         <input type="text" class="form-control" id="affirming" name="affirming" placeholder="" value="{{affirming}}" required>
       </div>

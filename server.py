@@ -39,12 +39,12 @@ def draw_cud():
             sql = "delete from draw where draw_id = ?"
             values_tuple = (data['id'],)
             result = run_commit_query(sql, values_tuple, db_path)
-            return redirect(url_for('competitions'))
+            return redirect(url_for('draw'))
         elif data['task'] == "update":
-            sql = """select grade, round, affirming, negating, winner from draw where draw_id=? """
-            values_tuple = (data['id'])
+            sql = """select grade, round, affirming, negating, winner from draw where draw_id=?"""
+            values_tuple = (data['id'],)
             result = run_search_query_tuples(sql, values_tuple, db_path, True)
-            result = result[0]
+            result=result[0]
             return render_template("draw_cud.html",
                                    **result,
                                    id=data['id'],
@@ -63,19 +63,19 @@ def draw_cud():
             f = request.form
             print(f)
             if data['task'] == 'add':
-                # add new news entry to the database
+                # add new entry to the database
                 # member is fixed for now
                 sql = """insert into draw(grade, round, affirming, negating, winner)
                                values(?,?,?,?,?)"""
                 values_tuple = (f['grade'], f['round'], f['affirming'], f['negating'], f['winner'])
                 result = run_commit_query(sql, values_tuple, db_path)
-                return redirect(url_for('competitions'))
+                return redirect(url_for('draw', grade=f['grade']))
             elif data['task'] == 'update':
-                sql = """update draw set affirming=?, negating=?, winner=? where draw_id=?"""
-                values_tuple = (f["affirming"], f["negating"], f["winner"], data['id'])
+                sql = """update draw set grade=?, affirming=?, negating=?, winner=? where draw_id=?"""
+                values_tuple = (f["grade"], f["affirming"], f["negating"], f["winner"], data['id'])
                 result = run_commit_query(sql, values_tuple, db_path)
                 # collect the data from the form and update the database at the sent id
-                return redirect(url_for('draw'))
+                return redirect(url_for('draw', grade=f['grade']))
             else:
                 # let's put in an error catch
                 message = "Unrecognised task coming from news form submission"
