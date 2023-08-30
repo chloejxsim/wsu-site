@@ -116,7 +116,7 @@ def news():
      from news
      left join comment on news.news_id = comment.news_id
      left join member on comment.member_id = member.member_id
-     order by news.newsdate desc
+     order by news.newsdate desc;
      """
     comments = run_search_query_tuples(sql, (), db_path, True)
     #news = run_search_query_tuples(sql, (), db_path, True)
@@ -142,6 +142,9 @@ def news_cud():
     # have an ID and a task key
     if request.method == "GET":
         if data['task'] == 'delete':
+            sql = "delete from comment where news_id = ?"
+            values_tuple = (data['id'],)
+            result = run_commit_query(sql, values_tuple, db_path)
             sql = "delete from news where news_id = ?"
             values_tuple = (data['id'],)
             result = run_commit_query(sql, values_tuple, db_path)

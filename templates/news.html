@@ -81,6 +81,7 @@ News
                              {% for com in comments %}
                              {% if com['news_id'] == row['news_id'] %}
                              <p class="recent-news-text">{{com['comment']}}</p>
+                             <p class="meta-text">Posted by {{com['firstname']}}</p>
                              {% endif %}
                              {% endfor %}
                         </div>
