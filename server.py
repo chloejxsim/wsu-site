@@ -36,10 +36,12 @@ def draw_cud():
             return render_template('error.html', message=message)
     if request.method == "GET":
         if data['task'] == 'delete':
+            if 'grade' not in data.keys():
+                return render_template("error.html", message="No grade give when deleting")
             sql = "delete from draw where draw_id = ?"
             values_tuple = (data['id'],)
             result = run_commit_query(sql, values_tuple, db_path)
-            return redirect(url_for('competitions'))
+            return redirect(url_for('draw', grade=data['grade']))
 
         elif data['task'] == "update":
             sql = """select grade, round, affirming, negating, winner from draw where draw_id=?"""

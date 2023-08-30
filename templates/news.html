@@ -25,11 +25,12 @@ News
 
       <div class="inner-container upcoming-container">
 
-        <div class="card-group">
+        <!-- <div class="card-group"> -->
 
+    <div class="row">
             {% for row in schedule %}
-              <div class="col-lg">
-                  <div class="card news-card h-100">
+              <div class="col mb-5">
+                  <div class="card news-card h-100 mx-auto" style="width: 18rem;">
                     <img class="card-img-top" src="/static/images/henry+aarnav%20-%20Edited.png">
                     <div class="card-body">
                       <h5 class="card-title">{{ row['event'] }}</h5>
@@ -49,8 +50,9 @@ News
                   </div>
              </div>
             {% endfor %}
+    </div>
 
-        </div>
+       <!-- </div> -->
 
       </div>
 
@@ -81,7 +83,7 @@ News
                              {% for com in comments %}
                              {% if com['news_id'] == row['news_id'] %}
                              <p class="recent-news-text">{{com['comment']}}</p>
-                             <p class="meta-text">Posted by {{com['firstname']}}</p>
+                             <p class="meta-text">- {{com['firstname']}}</p>
                              {% endif %}
                              {% endfor %}
                         </div>

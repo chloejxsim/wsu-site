@@ -53,10 +53,10 @@ Premier Advanced
           <!-- buttons for admin -->
             {% if session and session['authorisation'] == 0 %}
           <td>
-              <a class="btn btn-primary recent-news-button" href="{{ url_for('draw_cud' , id=row['draw_id'], task='update' ) }}" role="button">Edit</a>
+              <a class="btn btn-primary recent-news-button" href="{{ url_for('draw_cud' , id=row['draw_id'], task='update', grade=grade ) }}" role="button">Edit</a>
           </td>
           <td>
-              <a class="btn btn-primary recent-news-button" href="{{ url_for('draw_cud' , id=row['draw_id'], task='delete' ) }}" role="button">Delete</a>
+              <a class="btn btn-primary recent-news-button" href="{{ url_for('draw_cud' , id=row['draw_id'], task='delete', grade=grade ) }}" role="button">Delete</a>
           </td>
             {% endif %}
 
