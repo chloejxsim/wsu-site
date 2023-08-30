@@ -462,6 +462,7 @@ p {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    padding:0.5em;
 }
 
 .container {
@@ -579,6 +580,7 @@ p {
     justify-content: space-between;
     flex-wrap: wrap;
     flex: 1;
+    max-height: inherit;
 }
 
 .card-title {

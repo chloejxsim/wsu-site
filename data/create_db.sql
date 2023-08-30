@@ -34,7 +34,7 @@ create table schedule(
     scheduledate date not null,
     location text not null,
     member_id integer not null,
-    foreign key(member_id) references member (member_id)
+    foreign key(member_id) references member(member_id)
 );
 
 create table draw(
