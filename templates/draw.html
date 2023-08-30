@@ -48,9 +48,9 @@ Premier Advanced
         </thead>
     {% endif %}
         <!-- write table data -->
-        <tr><td>{{row['affirming']}}</td><td> {{row['negating']}}</td><td> {{row['winner']}}</td></tr>
+        <tr><td>{{row['affirming']}}</td><td> {{row['negating']}}</td><td> {{row['winner']}}</td>
 
-          <!-- buttons for admin -->
+            <!-- buttons for admin -->
             {% if session and session['authorisation'] == 0 %}
           <td>
               <a class="btn btn-primary recent-news-button" href="{{ url_for('draw_cud' , id=row['draw_id'], task='update', grade=grade ) }}" role="button">Edit</a>
@@ -59,6 +59,7 @@ Premier Advanced
               <a class="btn btn-primary recent-news-button" href="{{ url_for('draw_cud' , id=row['draw_id'], task='delete', grade=grade ) }}" role="button">Delete</a>
           </td>
             {% endif %}
+</tr>
 
     {% endfor %}
         <!-- loop is all done close off last accordion item -->

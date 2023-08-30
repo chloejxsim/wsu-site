@@ -488,6 +488,8 @@ p {
 
 .upcoming-container {
     min-width: 900px;
+    max-height:700px;
+    overflow: scroll;
     padding-bottom:2em;
 }
 
