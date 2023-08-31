@@ -90,13 +90,7 @@ News
                 <p class="meta-text">Posted by {{ row['firstname'] }} on {{ row['newsdate'] | news_date}}  </p>
                 </div>
                 {% if session and session['authorisation'] == 0 %}
-                    <style>
-                    .recent-container{
-                            min-width: 200px;
-                            max-height:690px;
-                            overflow: scroll;
-                    }
-                    </style>
+
                 <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='update') }}">update</a>
                 <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">delete</a>
                 {% endif %}
