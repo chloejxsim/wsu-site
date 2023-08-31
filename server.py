@@ -53,7 +53,7 @@ def draw_cud():
                                    id=data['id'],
                                    task=data['task'])
         elif data['task'] == 'add':
-            temp = {'grade': 'prem', 'round': '4', 'affirming': 'affirming team', 'negating': 'negating team', 'winner': 'winning team'}
+            temp = {'grade': 'Prem A', 'round': 'Round 1', 'affirming': 'affirming team', 'negating': 'negating team', 'winner': 'winning team'}
             return render_template("draw_cud.html",
                                     id=0,
                                     task=data['task'],
@@ -74,8 +74,8 @@ def draw_cud():
                 result = run_commit_query(sql, values_tuple, db_path)
                 return redirect(url_for('draw', grade=f['grade']))
             elif data['task'] == 'update':
-                sql = """update draw set grade=?, affirming=?, negating=?, winner=? where draw_id=?"""
-                values_tuple = (f["grade"], f["affirming"], f["negating"], f["winner"], data['id'])
+                sql = """update draw set grade=?, round=?, affirming=?, negating=?, winner=? where draw_id=?"""
+                values_tuple = (f["grade"], f["round"], f["affirming"], f["negating"], f["winner"], data['id'])
                 result = run_commit_query(sql, values_tuple, db_path)
                 return redirect(url_for('draw', grade=f['grade']))
             else:
