@@ -308,13 +308,7 @@ def signup():
     referrer = request.referrer
     print(referrer)
     if request.method == "GET":
-        temp_form_data = {
-            "firstname": "James",
-            "lastname": "Lovelock",
-            "email": "jl@gmail.com",
-            "password": "temp",
-        }
-        return render_template("signup.html", **temp_form_data)
+        return render_template("signup.html")
     elif request.method == "POST":
         f = request.form
         sql = """insert into member(firstname, lastname, email, password, authorisation)
