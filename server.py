@@ -161,11 +161,9 @@ def news_cud():
                                    id=data['id'],
                                    task=data['task'])
         elif data['task'] == 'add':
-            temp = {'title': 'Test Title', 'subtitle': 'Test subtitle', 'content': 'Test content'}
             return render_template("news_cud.html",
                                    id=0,
-                                   task=data['task'],
-                                   **temp)
+                                   task=data['task'])
         else:
             message = "Unrecognised task coming from news page"
             return render_template('error.html', message=message)
