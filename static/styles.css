@@ -499,6 +499,31 @@ p {
     overflow: scroll;
 }
 
+.form-header{
+    text-align:center;
+    width: 100%;
+    border-bottom: 5px solid var(--brand-yellow);
+    line-height: 0.1em;
+    margin: 20px 0 20px;
+}
+
+.form-subheading{
+    text-align:center;
+}
+
+h2 span {
+    background:#fff;
+    padding:0 10px;
+}
+
+.form-container {
+    border: 2px solid var(--brand-dark-gray);
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
 .col-lg-7, .col-lg-5, .col-lg-6 {
     border: 0 solid white;
 }
@@ -528,6 +553,10 @@ p {
 
 .row {
     padding: 1em 0 1em 0;
+}
+
+.nav-row {
+    padding: 0 0 0 0;
 }
 
 .aboutus-card{

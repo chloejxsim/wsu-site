@@ -5,9 +5,14 @@ Log In
 {% endblock %}
 
 {% block content %}
-<div class="container-m recent-news-containers white-bg">
 
-    <h2 class="recent-news-heading"> Please enter your credentials </h2>
+    <div class="container-m">
+    <h2 class="form-header"> <span> Log In </span></h2>
+    <br>
+    <h4 class="form-subheading"> Please enter your credentials </h4>
+    </div>
+
+<div class="form-container p-5">
 
   <div class="alert"> {{error}} </div>
 
@@ -16,6 +21,7 @@ Log In
       <label for="email" class="form-label">Please enter your email</label>
       <input type="email" class="form-control" id="email" name="email" placeholder="" value="{{email}}" required>
     </div>
+      <br>
     <div>
       <label for="password" class="form-label">Please enter your password</label>
       <input type="password" class="form-control" id="password" name="password" placeholder="" value="{{password}}" required>

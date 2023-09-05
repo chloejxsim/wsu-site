@@ -7,12 +7,14 @@ Sign Up
 {% block content %}
 
 <div class="container-m">
-  <p class="recent-news-text">
-    Sign up the Wellington Speaking Union to interact with the website, and access exclusive resources for members.
-  </p>
+    <h2 class="form-header"> <span> Sign Up </span> </h2>
+    <br>
+    <p class="recent-news-text">
+        Sign up the Wellington Speaking Union to interact with the website, and access exclusive resources for members.
+    </p>
 </div>
 
-<div class="container-m p-5">
+<div class="form-container p-5">
   <form action="{{ url_for('signup') }}" method="POST">
 
     <div>
@@ -44,6 +46,7 @@ Sign Up
       <button type="submit" class="btn btn-primary recent-news-button">submit</button>
     </div>
   </form>
+
 </div>
 
 {% endblock %}

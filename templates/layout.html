@@ -51,19 +51,14 @@
             {% if session %}
             <a class="nav-link nav-btn nav-btn-outline" href="{{ url_for('logout') }}">log out</a>
             {% else %}
-            <a class="nav-link nav-btn nav-btn-outline" style="display: inline-block" href="{{ url_for('signup') }}">sign up</a>
-            <a class="nav-link nav-btn nav-btn-outline" style="display: inline-block" href="{{ url_for('login') }}">log in</a>
+            <a class="nav-link nav-btn nav-btn-outline nav-item" style="display: inline-block" href="{{ url_for('signup') }}">sign up</a>
+            <a class="nav-link nav-btn nav-btn-outline nav-item" style="display: inline-block" href="{{ url_for('login') }}">log in</a>
             {% endif %}
         </div>
 
     </div>
 
 </nav>
-
-        {% if session %}
-        <div class="session"> {{ session['firstname'] }} is logged in and their authorisation is {{ session['authorisation'] }}</div>
-        {% endif %}
-
 
 {% block content %}
 {% endblock %}

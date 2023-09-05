@@ -5,10 +5,14 @@ Our News
 {% endblock %}
 
 {% block content %}
-<div class="recent-news-containers white-bg">
 
-  <div class="news p-4 my-4">
-    <h2>Please enter/update your news item</h2>
+    <div class="container-m">
+        <h2 class="form-header"> <span> News Editor </span> </h2>
+    <br>
+        <h4 class="form-subheading"> Please enter/update your news item  </h4>
+    </div>
+
+  <div class="form-container p-4 my-4">
     <form action="{{url_for('news_cud', id=id, task=task)}}" method="POST">
       <div>
         <label for="title" class="form-label">Title</label>
@@ -28,7 +32,5 @@ Our News
       </div>
     </form>
   </div>
-
-</div>
 
 {% endblock %}

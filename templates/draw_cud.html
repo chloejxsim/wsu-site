@@ -6,10 +6,13 @@ Draw Update
 
 {% block content %}
 
-<div class="recent-news-containers white-bg">
+    <div class="container-m">
+        <h2 class="form-header"> <span> Draw Editor </span> </h2>
+    <br>
+        <h4 class="form-subheading"> Please enter/update the draw </h4>
+    </div>
 
-  <div class="news p-4 my-4">
-    <h2>Please enter/update the draw</h2>
+  <div class="form-container p-4 my-4">
     <form action="{{url_for('draw_cud', id=id, task=task)}}" method="POST">
       <div>
         <label for="grade" class="form-label">Grade</label>
@@ -37,7 +40,5 @@ Draw Update
       </div>
     </form>
   </div>
-
-</div>
 
 {% endblock %}
