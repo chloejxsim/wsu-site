@@ -8,6 +8,138 @@
 --brand-white: rgb(255,255,255);
 }
 
+/* --- Button Related --- */
+
+a.btn, a.btn-circle {
+    text-decoration: none;
+}
+
+.learn-more-button {
+    padding: 1.1em 1.3em 1.1em 1.5em;
+    letter-spacing:2px;
+    vertical-align: middle;
+    user-select: none;
+    text-transform: uppercase;
+    position:relative;
+    text-align:center;
+    transform: translateY(21%);
+    background-color: var(--brand-yellow);
+    color:var(--brand-dark-gray);
+    border: 1px solid transparent;
+    text-decoration: none;
+    display: inline-block;
+    margin: auto;
+    cursor: pointer;
+}
+
+.learn-more-button:hover {
+    border: 1px solid var(--brand-dark-gray);
+    color:var(--brand-black);
+    background-color: var(--brand-yellow);
+}
+
+.nav-btn-outline{
+    border: 0 solid white;
+    padding: 0 0.5em;
+}
+
+.nav-btn-outline:hover{
+    background-color: var(--brand-yellow);
+}
+
+.aboutus-button {
+    border: 1px solid transparent;
+    outline: 0;
+    display:block;
+    letter-spacing: 2px;
+    color:var(--brand-dark-gray);
+    vertical-align: middle;
+    user-select: none;
+    margin:auto;
+    background-color:var(--brand-yellow);
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 0.75em 0.5em 0.75em 0.5em;
+    overflow: hidden;
+}
+
+.aboutus-button:hover {
+    opacity: 0.7;
+    color:var(--brand-dark-gray);
+}
+
+.btn-primary, .btn-primary:hover {
+    --bs-btn-color: var(--brand-dark-gray);
+    --bs-btn-bg:var(--brand-white);
+    --bs-btn-border-color:var(--brand-dark-gray);
+    --bs-btn-border-radius: 2px;
+    --bs-btn-active-color:var(--brand-dark-gray);
+    --bs-btn-active-bg: var(--brand-yellow);
+    --bs-btn-active-border-color: var(--brand-dark-gray);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
+    --bs-btn-disabled-color: var(--brand-dark-gray);
+    --bs-btn-disabled-bg: var(--brand-white);
+    --bs-btn-disabled-border-color:var(--brand-dark-gray);
+    transition: none !important;
+    position: relative;
+    text-align:center;
+    display: inline-block;
+    padding: 0.4em 0.6em;
+}
+
+.btn-primary:hover{
+    --bs-btn-hover-color:var(--brand-dark-gray);
+    --bs-btn-hover-bg:var(--brand-white);
+    --bs-btn-hover-border-color:var(--brand-dark-gray);
+    box-shadow: 0 0 1px 1px rgba(70,67,68,0.2);
+}
+
+.btn, .btn-circle {
+    color: var(--brand-dark-gray);
+    text-align: center;
+    margin:auto;
+    letter-spacing: 2px;
+    vertical-align: middle;
+    user-select: none;
+    text-transform: uppercase;
+}
+
+.schedule-button {
+    transition: none !important;
+    border-radius: 2px;
+    background-color: var(--brand-white);
+    color:var(--brand-dark-gray);
+    border-color:var(--brand-dark-gray);
+    position: relative;
+    text-align:center;
+    display:inline-block;
+    padding: 0.4em 0.6em;
+    margin: 0.1em;
+}
+
+.schedule-button:hover {
+    --bs-btn-hover-bg:var(--brand-white) !important;
+    --bs-btn-hover-color:var(--brand-light-gray) !important;
+    --bs-btn-hover-border-color:var(--brand-light-gray);
+    --bs-btn-hover-border-radius:2px;
+    box-shadow: 0 0 1px 1px rgba(70,67,68,0.2);
+}
+
+.news-button:hover {
+    --bs-btn-hover-bg:var(--brand-white) !important;
+    --bs-btn-hover-color:var(--brand-light-gray) !important;
+    --bs-btn-hover-border-color:var(--brand-light-gray);
+    box-shadow: 0 0 1px 1px rgba(70,67,68,0.2);
+}
+
+
+
+
+
+
 /* --- Header --- */
 
 .hero-image {
@@ -39,7 +171,7 @@
     overflow: auto;
 }
 
-a.btn, a.btn-circle {
+/* a.btn, a.btn-circle {
     text-decoration: none;   
 }
 
@@ -69,6 +201,8 @@ a.btn, a.btn-circle {
     text-align:center;
     transform: translateY(21%);
 }
+
+ */
 
 .parallax-container {
     background-attachment: fixed;
@@ -363,7 +497,7 @@ p {
     padding-top: 0.5em;
 }
 
-.nav-btn-outline{
+/*.nav-btn-outline{
     border: 0 solid white;
     padding: 0 0.5em;
 }
@@ -371,6 +505,8 @@ p {
 .nav-btn-outline:hover{
     background-color: var(--brand-yellow);
 }
+
+ */
 
 .sticky {
     position: fixed;
@@ -575,7 +711,7 @@ h2 span {
     box-shadow: 0 8px 16px 0 rgba(70,67,68,0.4);
 }
 
-.aboutus-button {
+/*.aboutus-button {
     border: 1px solid transparent;
     outline: 0;
     display:block;
@@ -623,6 +759,8 @@ h2 span {
     padding: 0.4em 0.6em;
     margin: 0.1em;
 }
+
+ */
 
 .card {
     --bs-card-border-color:0px white;

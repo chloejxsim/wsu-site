@@ -19,7 +19,7 @@ News
 
       {% if session and session['authorisation'] == 0 %}
       <div class="py-2 text-center">
-          <a class="btn btn-primary recent-news-button" href="{{ url_for('schedule_cud', id=0, task='add') }}">add new event</a>
+          <a class="btn btn-primary news-button" href="{{ url_for('schedule_cud', id=0, task='add') }}">add new event</a>
       </div>
       {% endif %}
 
@@ -63,7 +63,7 @@ News
 
     {% if session and session['authorisation'] == 0 %}
       <div class="py-2 text-center">
-          <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=0, task='add') }}">add news</a>
+          <a class="btn btn-primary news-button" href="{{ url_for('news_cud', id=0, task='add') }}">add news</a>
       </div>
     {% endif %}
 
@@ -91,8 +91,8 @@ News
                 </div>
                 {% if session and session['authorisation'] == 0 %}
 
-                <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='update') }}">update</a>
-                <a class="btn btn-primary recent-news-button" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">delete</a>
+                <a class="btn btn-primary news-button" href="{{ url_for('news_cud', id=row['news_id'], task='update') }}">update</a>
+                <a class="btn btn-primary news-button" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">delete</a>
                 {% endif %}
     </div>
         {% endfor %}
