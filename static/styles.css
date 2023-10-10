@@ -247,6 +247,14 @@ a.btn, a.btn-circle {
     background-image: url("images/Parallax3.png");
 }
 
+.parallax4 {
+    background-image: url("images/Parallax4.jpg");
+}
+
+.parallax5 {
+    background-image: url("images/Parallax5.jpg");
+}
+
 /* --- Body --- */
 
 body{
