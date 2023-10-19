@@ -8,7 +8,7 @@
 --brand-white: rgb(255,255,255);
 }
 
-/* --- Button Related --- */
+/* --- Buttons --- */
 
 a.btn, a.btn-circle {
     text-decoration: none;
@@ -135,11 +135,6 @@ a.btn, a.btn-circle {
     box-shadow: 0 0 1px 1px rgba(70,67,68,0.2);
 }
 
-
-
-
-
-
 /* --- Header --- */
 
 .hero-image {
@@ -171,39 +166,6 @@ a.btn, a.btn-circle {
     overflow: auto;
 }
 
-/* a.btn, a.btn-circle {
-    text-decoration: none;   
-}
-
-.btn-primary, .btn-primary:hover {
-    color:var(--brand-dark-gray);
-    background-color:var(--brand-yellow);
-    border-color:var(--brand-dark-gray);
-}
-
-.btn, .btn-circle {
-    display:inline-block;
-    margin:auto;
-    text-align: center;
-    letter-spacing: 2px;
-    color: var(--brand-white);
-    vertical-align: middle;
-    user-select: none;
-    border: 1px solid transparent;
-    text-transform: uppercase;
-    padding: 1.1em 1.3em 1.1em 1.5em;
-    transition: color 0.5s ease-in-out,background-color 0.5s ease-in-out,border-color 0.5s ease-in-out,box-shadow 1s cubic-bezier(.019,1,.22,1);
-    position:relative;
-}
-
-.btn-overlay {
-    position:relative;
-    text-align:center;
-    transform: translateY(21%);
-}
-
- */
-
 .parallax-container {
     background-attachment: fixed;
     background-position: top;
@@ -216,7 +178,7 @@ a.btn, a.btn-circle {
 }
 
 .parallax-container h1:first-child {
-    font-size: 7em;
+    font-size: 7rem;
     text-align:center;
     font-weight:400;
     margin:auto;
@@ -993,31 +955,12 @@ form p{
     .nav-btn-outline{
         padding: 0.5em 0 0.5em 0;
     }
-}
-
-@media only screen and (max-width: 768px) {
-    .body-text , .quote{
-        font-size:1.5em;
-    }
-    h1{
-        font-size: 2em;
-    }
-}
-
-@media only screen and (max-width: 576px) {
-
-    .part-img{
-        max-width: 80%;
-    }
-
-}
-
-@media (max-width: 992px) {
     .card-group {
         display: flex ;
         flex-flow: row wrap;
         flex-direction: column;
     }
+
     .aboutus-card {
     box-shadow: 0 4px 8px 0 rgba(70,67,68,0.4);
     transition: 0.3s;
@@ -1029,33 +972,8 @@ form p{
     padding-top: 2em;
     border: 0 solid blue;
     }
-
-
-@media only screen and (max-device-width: 1366px) {
-  .parallax {
-    background-attachment: scroll;
-  }
-}
-
-@media only screen and (max-width: 991px){
-    .welcome-box{
-        transform: translateX(12.5%);
-        margin-bottom:2em;
-        max-width:80%;
-    }
-    .welcome-text{
-        text-align:center;
-    }
-    .news-card{
-        max-width:78%;
-        margin-bottom:2em;
-    }
-    .container{
-        border-radius:1%;
-        margin-top:1em;
-    }
-    .nav-btn-outline{
-        padding: 0.5em 0 0.5em 0;
+    h1{
+        font-size: 1em;
     }
 }
 
@@ -1063,35 +981,19 @@ form p{
     .body-text , .quote{
         font-size:1.5em;
     }
-    h1{
-        font-size: 2em;
+    /* --- */
+    .parallax-container h1:first-child{
+        font-size: 5em;
     }
-} 
+    .parallax-container h1:nth-child(2){
+        font-size: 1.5em;
+    }
+}
 
 @media only screen and (max-width: 576px) {
-    
+
     .part-img{
         max-width: 80%;
     }
-    
-}
 
-@media (max-width: 992px) {
-    .card-group {
-        display: flex ;
-        flex-flow: row wrap;
-        flex-direction: column;
-    }
-    .aboutus-card {
-    box-shadow: 0 4px 8px 0 rgba(70,67,68,0.4);
-    transition: 0.3s;
-    max-width: 80%;
-    min-height: 100%;
-    margin-left: 5em !important;
-    margin-right: 5em;
-    margin-top: 2em;
-    padding-top: 2em;
-    border: 0 solid blue;
-    }
-}
 }
