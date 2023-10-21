@@ -6,9 +6,9 @@ News
 
 {% block content %}
 
-<section class="parallax-container parallax3">
-    <h1>news</h1>
-    <h1>keep up to date with upcoming and latest news</h1>
+<section class="parallax-container parallax2">
+    <h1 class="parallax-text">news</h1>
+    <h1 class="parallax-subtitle">keep up to date with upcoming and latest news</h1>
 </section>
 
 <div class="main-container">
@@ -27,13 +27,13 @@ News
 
         <!-- <div class="card-group"> -->
 
-    <div class="row">
+    <div class="row news-row align-items-center">
             {% for row in schedule %}
-              <div class="col mb-6">
+              <div class="col-md-4 mx-auto w-md-75">
                   <div class="card news-card h-100 mx-auto" style="width: 16rem;">
                     <div class="card-body">
                       <h5 class="card-title">{{ row['event'] }}</h5>
-                      <p class="card-text news-text">{{ row['description'] }}</p>
+                      <p class="card-text dark-gray-text">{{ row['description'] }}</p>
                     </div>
                     <div class="card-footer">
                       <small class="text-muted">{{ row['location'] }}</small>
@@ -59,7 +59,7 @@ News
 
   <div class="container light-gray-bg">
 
-      <h1 class="page-title competition-title-2">recent</h1>
+      <h1 class="page-title yellow-text">recent</h1>
 
     {% if session and session['authorisation'] == 0 %}
       <div class="py-2 text-center">

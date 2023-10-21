@@ -7,8 +7,8 @@ Competitions
 {% block content %}
 
 <section class="parallax-container parallax1">
-    <h1>competitions</h1>
-    <h1>learn more about competitions</h1>
+    <h1 class="parallax-text">competitions</h1>
+    <h1 class="parallax-subtitle">learn more about competitions</h1>
 </section>
 
 <div class="quote">
@@ -17,26 +17,26 @@ Competitions
 
 <div class="container-m container-fluid">
 
-    <h1 class="page-title yellow-bg competition-title-1">intercollegiate premier</h1>
+    <h1 class="page-title yellow-bg black-text">intercollegiate</h1>
 
     <div class="card-group w-75 mx-auto">
 
       <div class="card">
-        <img class="circular-image publicspeakingcompetitions" src="/static/images/Competitions_WCPremA.jpg" alt="Wellington College Premier A team">
+        <img class="circular-image" src="/static/images/Competitions_WCPremA.jpg" alt="Wellington College Premier A team">
         <div class="card-body">
             <a class="a-resources" href="{{url_for('draw', grade="Prem A")}}">Premier Advanced</a>
         </div>
       </div>
 
       <div class="card">
-        <img class="circular-image publicspeakingcompetitions" src="/static/images/Competitions_WGCTeam.jpg" alt="Wellington Girls College team">
+        <img class="circular-image" src="/static/images/Competitions_WGCTeam.jpg" alt="Wellington Girls College team">
         <div class="card-body">
             <a class="a-resources" href="{{url_for('draw', grade="Prem B")}}">Premier B</a>
         </div>
       </div>
 
       <div class="card">
-        <img class="circular-image publicspeakingcompetitions" src="/static/images/Competitions_MCSpeaking.jpg">
+        <img class="circular-image" src="/static/images/Competitions_MCSpeaking.jpg">
         <div class="card-body">
             <a class="a-resources" href="{{url_for('draw', grade="Junior Prem")}}">Junior Premier</a>
         </div>
@@ -44,12 +44,10 @@ Competitions
 
     </div>
 
-<h1 class="page-title dark-gray-bg competition-title-2">intercollegiate certificate</h1>
-
-    <div class="card-group w-50 mx-auto">
+    <div class="card-group w-lg-50 w-md-75 mx-auto">
 
       <div class="card">
-        <img class="circular-image publicspeakingcompetitions" src="/static/images/Competitions_ArushiPOI.jpg" alt="Debater (Arushi) giving POPI">
+        <img class="circular-image" src="/static/images/Competitions_ArushiPOI.jpg" alt="Debater (Arushi) giving POPI">
         <div class="card-body">
             <a class="a-resources" href="{{url_for('draw', grade="Senior Cert")}}">Senior Certificate</a>
         </div>
@@ -58,7 +56,7 @@ Competitions
         <br>
 
       <div class="card">
-        <img class="circular-image publicspeakingcompetitions" src="/static/images/Competitions_JCertMarsden.jpg">
+        <img class="circular-image" src="/static/images/Competitions_JCertMarsden.jpg">
         <div class="card-body">
             <a class="a-resources" href="{{url_for('draw', grade="Junior Cert")}}">Junior Certificate</a>
         </div>
@@ -66,18 +64,16 @@ Competitions
 
     </div>
 
-</div>
-
 <div class="container-m container-fluid" id="debating">
 
-    <h1 class="page-title yellow-bg competition-title-1">debating</h1>
+    <h1 class="page-title dark-gray-bg yellow-text">debating</h1>
 
-    <div class="card-group mx-auto w-100">
+    <div class="card-group mx-auto w-100 w-md-75">
 
       <div class="card">
-        <img class="circular-image debatingcompetitions" src="/static/images/Competitions_Divya.png" alt="Debater (Divya) receives a certificate">
+        <img class="circular-image" src="/static/images/Competitions_Divya.png" alt="Debater (Divya) receives a certificate">
         <div class="card-body">
-          <h1 class="page-subheading competition-subheading-1">Regionals</h1>
+          <h1 class="page-subheading dark-gray-text">Regionals</h1>
           <p class="card-text competition-text-1">The New Zealand School’s Debating Council (NZSDC) runs annual
               regional competitions to select teams for Nationals. Students of any ability from Years 9 to 13
               are able to participate in the largest competition of Wellington’s debating calendar.</p>
@@ -85,18 +81,18 @@ Competitions
       </div>
 
       <div class="card">
-        <img class="circular-image debatingcompetitions" src="/static/images/Competitions_Gloria.png" alt="Junior Samuel Marsden debater">
+        <img class="circular-image" src="/static/images/Competitions_Gloria.png" alt="Junior Samuel Marsden debater">
         <div class="card-body">
-          <h1 class="page-subheading competition-subheading-1">Impromptu Cup</h1>
+          <h1 class="page-subheading dark-gray-text">Impromptu Cup</h1>
           <p class="card-text competition-text-1">The Wellington Speaking Union (WSU) runs the annual Impromptu Cup tournament
               for senior students. Students compete in teams of two with only 10 minutes preparation time. </p>
         </div>
       </div>
 
       <div class="card">
-        <img class="circular-image debatingcompetitions" src="/static/images/Competitions_Chloe.png" alt="Debater (Chloe) receives a certificate">
+        <img class="circular-image" src="/static/images/Competitions_Chloe.png" alt="Debater (Chloe) receives a certificate">
         <div class="card-body">
-          <h1 class="page-subheading competition-subheading-1">British Parliamentary</h1>
+          <h1 class="page-subheading dark-gray-text">British Parliamentary</h1>
           <p class="card-text competition-text-1">NZSDC may elect to run a British Parliamentary tournament for senior
               students. Each debate hosts four competing teams of two who only receive 30 minutes
               preparation. </p>
@@ -104,9 +100,9 @@ Competitions
       </div>
 
         <div class="card">
-        <img class="circular-image debatingcompetitions" src="/static/images/Competitions_Henry.png" alt="Debater (Henry) receives a certificate">
+        <img class="circular-image" src="/static/images/Competitions_Henry.png" alt="Debater (Henry) receives a certificate">
         <div class="card-body">
-          <h1 class="page-subheading competition-subheading-1">Junior Development</h1>
+          <h1 class="page-subheading dark-gray-text">Junior Development</h1>
           <p class="card-text competition-text-1">The annual Junior Development Competition (also known as “The Moot Must Fall Student
               Tournament”) is available to debaters of any ability from Years 9 to 11. Students are placed in
               mixed school teams, with a varied age and debating experience.</p>
@@ -119,29 +115,31 @@ Competitions
 
 <div class="container-m container-fluid">
 
-    <h1 class="page-title dark-gray-bg competition-title-2">public speaking</h1>
+    <h1 class="page-title yellow-bg black-text">public speaking</h1>
 
-    <div class="card-group w-50 mx-auto">
+    <div class="card-group w-50 w-md-75 mx-auto">
 
       <div class="card">
-        <img class="circular-image publicspeakingcompetitions" src="/static/images/Competitions_Elke.png" alt="Junior Marsden debater">
+        <img class="circular-image" src="/static/images/Competitions_Elke.png" alt="Junior Marsden debater">
         <div class="card-body">
-          <h1 class="page-subheading competition-subheading-2">Dunsheath Shield</h1>
+          <h1 class="page-subheading light-gray-text">Dunsheath Shield</h1>
           <p class="card-text competition-text-1">The Dunsheath Shield is a public speaking competition organised and hosted
                   by the WSU for junior students.</p>
         </div>
       </div>
 
         <div class="card">
-        <img class="circular-image publicspeakingcompetitions" src="/static/images/Competitions_Henry_2.png">
+        <img class="circular-image" src="/static/images/Competitions_Henry_2.png">
         <div class="card-body">
-          <h1 class="page-subheading competition-subheading-2">Stockley Cup</h1>
+          <h1 class="page-subheading light-gray-text">Stockley Cup</h1>
           <p class="card-text competition-text-1">The Stockley Cup is a public speaking competition organised
                   and hosted by the WSU for senior students.</p>
         </div>
       </div>
 
     </div>
+
+</div>
 
 </div>
 
